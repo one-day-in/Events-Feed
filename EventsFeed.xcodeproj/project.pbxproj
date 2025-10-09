@@ -1,0 +1,1155 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E6B55ED2E7953CF004F2446 /* EventsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B55EC2E7953CF004F2446 /* EventsFeedViewModel.swift */; };
+		0E6B55EF2E79542A004F2446 /* ConcertServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B55EE2E79542A004F2446 /* ConcertServiceProtocol.swift */; };
+		0E6B55F12E795647004F2446 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B55F02E795647004F2446 /* MockData.swift */; };
+		0ED3ED032E7804B60034626C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED3ED022E7804B60034626C /* Swinject */; };
+		0ED3ED062E7804ED0034626C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED3ED052E7804ED0034626C /* GoogleSignIn */; };
+		0ED3ED082E7804ED0034626C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED3ED072E7804ED0034626C /* GoogleSignInSwift */; };
+		0ED3ED0E2E7805090034626C /* EventsFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */; };
+		0ED3ED0F2E7805090034626C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3ED092E7805090034626C /* Assets.xcassets */; };
+		0ED3ED122E7805370034626C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED112E7805370034626C /* DIContainer.swift */; };
+		0ED3ED1D2E7809820034626C /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED1C2E7809820034626C /* AuthServiceProtocol.swift */; };
+		0ED3ED1F2E7809A70034626C /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED1E2E7809A70034626C /* GoogleAuthService.swift */; };
+		0ED3ED212E780A050034626C /* YouTubeMusicAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED202E780A050034626C /* YouTubeMusicAssembly.swift */; };
+		0ED3ED232E780A980034626C /* CoordinatedSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED222E780A980034626C /* CoordinatedSessionManager.swift */; };
+		0ED3ED252E7813920034626C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED242E7813920034626C /* RootView.swift */; };
+		0ED3ED272E7813CA0034626C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED262E7813CA0034626C /* LoginView.swift */; };
+		0ED3ED292E7813E60034626C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED282E7813E60034626C /* MainTabView.swift */; };
+		0ED3ED312E7925050034626C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED302E7925050034626C /* AppDelegate.swift */; };
+		0ED3ED332E7928A00034626C /* EventsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED322E7928A00034626C /* EventsFeedView.swift */; };
+		0ED3ED352E7928BB0034626C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED342E7928BB0034626C /* ProfileView.swift */; };
+		0ED3ED3E2E792FD60034626C /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED3D2E792FD60034626C /* FilterButton.swift */; };
+		841928692E869AEA0043F321 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 841928682E869AEA0043F321 /* Kingfisher */; };
+		841A16972E8BC9570007F28C /* EventsFeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A16962E8BC9570007F28C /* EventsFeedHeaderView.swift */; };
+		841A16992E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 841A16982E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf */; };
+		841A169B2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A169A2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift */; };
+		841A169D2E8BDEF80007F28C /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A169C2E8BDEF80007F28C /* Shimmer.swift */; };
+		8440C6772E8535F400EA6A9D /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440C6762E8535F400EA6A9D /* ExploreView.swift */; };
+		8440C67D2E8543ED00EA6A9D /* ConcertCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */; };
+		84497E412E937C6900DDBB09 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E402E937C6900DDBB09 /* ErrorService.swift */; };
+		84497E462E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */; };
+		84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */; };
+		84497E4F2E93BCBB00DDBB09 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4E2E93BCBB00DDBB09 /* UserSessionManager.swift */; };
+		84497E512E93BCE200DDBB09 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E502E93BCE200DDBB09 /* MusicService.swift */; };
+		84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E522E94118C00DDBB09 /* ConcertService.swift */; };
+		84497E552E9415A800DDBB09 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E542E9415A800DDBB09 /* AppError.swift */; };
+		84497E5F2E94E03100DDBB09 /* SpotifyTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */; };
+		8466420C2E8F8D760092F691 /* SpotifyServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466420B2E8F8D760092F691 /* SpotifyServiceClient.swift */; };
+		8466420E2E8F8DA50092F691 /* AppleMusicClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8466420D2E8F8DA50092F691 /* AppleMusicClient.swift */; };
+		846642172E8F9A520092F691 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 846642162E8F9A520092F691 /* SpotifyiOS */; };
+		847E11E92E95328E0087BD88 /* YouTubeMusicConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11E82E95328E0087BD88 /* YouTubeMusicConstants.swift */; };
+		847E11ED2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11EC2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift */; };
+		847E11EF2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */; };
+		847E11F12E9533040087BD88 /* YouTubeMusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */; };
+		847E12142E9562C30087BD88 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12132E9562C30087BD88 /* Notifications.swift */; };
+		847E12162E9562CA0087BD88 /* MusicServiceNotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */; };
+		847E121B2E956F640087BD88 /* MusicServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121A2E956F640087BD88 /* MusicServiceType.swift */; };
+		847E121E2E95724A0087BD88 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121D2E95724A0087BD88 /* AuthError.swift */; };
+		847E12202E95724B0087BD88 /* MusicServiceAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121F2E95724B0087BD88 /* MusicServiceAuthError.swift */; };
+		847E12252E9573AC0087BD88 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12212E9573AC0087BD88 /* Concert.swift */; };
+		847E12282E9574460087BD88 /* SpotifyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12272E9574460087BD88 /* SpotifyAssembly.swift */; };
+		847E122A2E9574470087BD88 /* AuthenticationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12292E9574470087BD88 /* AuthenticationAssembly.swift */; };
+		847E122C2E9574480087BD88 /* FoundationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122B2E9574480087BD88 /* FoundationAssembly.swift */; };
+		847E122E2E9574AA0087BD88 /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */; };
+		847E12302E9574CD0087BD88 /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */; };
+		847E12392E964FCC0087BD88 /* ConcertSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12382E964FCC0087BD88 /* ConcertSection.swift */; };
+		847E12402E9650BC0087BD88 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E123F2E9650BC0087BD88 /* InfoRow.swift */; };
+		847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12412E96517F0087BD88 /* ErrorBannerView.swift */; };
+		847E12452E9653170087BD88 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12442E9653170087BD88 /* ProfileHeaderView.swift */; };
+		847E12492E96531F0087BD88 /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12482E96531F0087BD88 /* AppInfoView.swift */; };
+		847E124B2E9653210087BD88 /* MusicServiceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124A2E9653210087BD88 /* MusicServiceRowView.swift */; };
+		847E124D2E9653220087BD88 /* ConnectedServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124C2E9653220087BD88 /* ConnectedServicesView.swift */; };
+		847E124F2E9653230087BD88 /* UserInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124E2E9653230087BD88 /* UserInfoCardView.swift */; };
+		847E12522E965C290087BD88 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12512E965C290087BD88 /* RootViewModel.swift */; };
+		847E12542E965C3E0087BD88 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12532E965C3E0087BD88 /* ProfileViewModel.swift */; };
+		847E12632E9792020087BD88 /* MusicServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12622E9792020087BD88 /* MusicServiceProtocols.swift */; };
+		847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12642E9792680087BD88 /* MusicServiceClient.swift */; };
+		847E12672E9792B90087BD88 /* WebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12662E9792B90087BD88 /* WebAuthHandler.swift */; };
+		847E12692E9792D20087BD88 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12682E9792D20087BD88 /* TokenStorage.swift */; };
+		84C1C4502E8C091F00A39C8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C44F2E8C091F00A39C8D /* LoadingView.swift */; };
+		84C1C4522E8C0A9600A39C8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C4512E8C0A9600A39C8D /* User.swift */; };
+		84DFC9D32E94E0CC00FB1C34 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0ED3ECE52E78043E0034626C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0ED3ECCF2E78043D0034626C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ED3ECD62E78043D0034626C;
+			remoteInfo = EventsFeed;
+		};
+		0ED3ECEF2E78043E0034626C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0ED3ECCF2E78043D0034626C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ED3ECD62E78043D0034626C;
+			remoteInfo = EventsFeed;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E6B55EC2E7953CF004F2446 /* EventsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedViewModel.swift; sourceTree = "<group>"; };
+		0E6B55EE2E79542A004F2446 /* ConcertServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertServiceProtocol.swift; sourceTree = "<group>"; };
+		0E6B55F02E795647004F2446 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		0ED3ECD72E78043D0034626C /* EventsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ED3ECE42E78043E0034626C /* EventsFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ED3ECEE2E78043E0034626C /* EventsFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ED3ED092E7805090034626C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedApp.swift; sourceTree = "<group>"; };
+		0ED3ED112E7805370034626C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		0ED3ED1B2E7808060034626C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ED3ED1C2E7809820034626C /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		0ED3ED1E2E7809A70034626C /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
+		0ED3ED202E780A050034626C /* YouTubeMusicAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicAssembly.swift; sourceTree = "<group>"; };
+		0ED3ED222E780A980034626C /* CoordinatedSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatedSessionManager.swift; sourceTree = "<group>"; };
+		0ED3ED242E7813920034626C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0ED3ED262E7813CA0034626C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0ED3ED282E7813E60034626C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0ED3ED302E7925050034626C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0ED3ED322E7928A00034626C /* EventsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedView.swift; sourceTree = "<group>"; };
+		0ED3ED342E7928BB0034626C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0ED3ED3D2E792FD60034626C /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		841A16962E8BC9570007F28C /* EventsFeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedHeaderView.swift; sourceTree = "<group>"; };
+		841A16982E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		841A169A2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertCardPlaceholderView.swift; sourceTree = "<group>"; };
+		841A169C2E8BDEF80007F28C /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		8440C6762E8535F400EA6A9D /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertCardView.swift; sourceTree = "<group>"; };
+		84497E402E937C6900DDBB09 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
+		84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebAuthHandler.swift; sourceTree = "<group>"; };
+		84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
+		84497E4E2E93BCBB00DDBB09 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
+		84497E502E93BCE200DDBB09 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		84497E522E94118C00DDBB09 /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
+		84497E542E9415A800DDBB09 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenStorage.swift; sourceTree = "<group>"; };
+		8466420B2E8F8D760092F691 /* SpotifyServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyServiceClient.swift; sourceTree = "<group>"; };
+		8466420D2E8F8DA50092F691 /* AppleMusicClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicClient.swift; sourceTree = "<group>"; };
+		847E11E82E95328E0087BD88 /* YouTubeMusicConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicConstants.swift; sourceTree = "<group>"; };
+		847E11EC2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicTokenStorage.swift; sourceTree = "<group>"; };
+		847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicWebAuthHandler.swift; sourceTree = "<group>"; };
+		847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicServiceClient.swift; sourceTree = "<group>"; };
+		847E12132E9562C30087BD88 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceNotificationKeys.swift; sourceTree = "<group>"; };
+		847E121A2E956F640087BD88 /* MusicServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceType.swift; sourceTree = "<group>"; };
+		847E121D2E95724A0087BD88 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		847E121F2E95724B0087BD88 /* MusicServiceAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceAuthError.swift; sourceTree = "<group>"; };
+		847E12212E9573AC0087BD88 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
+		847E12272E9574460087BD88 /* SpotifyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAssembly.swift; sourceTree = "<group>"; };
+		847E12292E9574470087BD88 /* AuthenticationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAssembly.swift; sourceTree = "<group>"; };
+		847E122B2E9574480087BD88 /* FoundationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationAssembly.swift; sourceTree = "<group>"; };
+		847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagersAssembly.swift; sourceTree = "<group>"; };
+		847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
+		847E12382E964FCC0087BD88 /* ConcertSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertSection.swift; sourceTree = "<group>"; };
+		847E123F2E9650BC0087BD88 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		847E12412E96517F0087BD88 /* ErrorBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBannerView.swift; sourceTree = "<group>"; };
+		847E12442E9653170087BD88 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		847E12482E96531F0087BD88 /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
+		847E124A2E9653210087BD88 /* MusicServiceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceRowView.swift; sourceTree = "<group>"; };
+		847E124C2E9653220087BD88 /* ConnectedServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedServicesView.swift; sourceTree = "<group>"; };
+		847E124E2E9653230087BD88 /* UserInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCardView.swift; sourceTree = "<group>"; };
+		847E12512E965C290087BD88 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		847E12532E965C3E0087BD88 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		847E12622E9792020087BD88 /* MusicServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceProtocols.swift; sourceTree = "<group>"; };
+		847E12642E9792680087BD88 /* MusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceClient.swift; sourceTree = "<group>"; };
+		847E12662E9792B90087BD88 /* WebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAuthHandler.swift; sourceTree = "<group>"; };
+		847E12682E9792D20087BD88 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		84C1C44F2E8C091F00A39C8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		84C1C4512E8C0A9600A39C8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0ED3ECE72E78043E0034626C /* EventsFeedTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EventsFeedTests;
+			sourceTree = "<group>";
+		};
+		0ED3ECF12E78043E0034626C /* EventsFeedUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EventsFeedUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0ED3ECD42E78043D0034626C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841928692E869AEA0043F321 /* Kingfisher in Frameworks */,
+				0ED3ED082E7804ED0034626C /* GoogleSignInSwift in Frameworks */,
+				846642172E8F9A520092F691 /* SpotifyiOS in Frameworks */,
+				0ED3ED032E7804B60034626C /* Swinject in Frameworks */,
+				0ED3ED062E7804ED0034626C /* GoogleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECE12E78043E0034626C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECEB2E78043E0034626C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0ED3ECCE2E78043D0034626C = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED0C2E7805090034626C /* EventsFeed */,
+				0ED3ECE72E78043E0034626C /* EventsFeedTests */,
+				0ED3ECF12E78043E0034626C /* EventsFeedUITests */,
+				0ED3ECD82E78043D0034626C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0ED3ECD82E78043D0034626C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ECD72E78043D0034626C /* EventsFeed.app */,
+				0ED3ECE42E78043E0034626C /* EventsFeedTests.xctest */,
+				0ED3ECEE2E78043E0034626C /* EventsFeedUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0ED3ED0C2E7805090034626C /* EventsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				847E12172E956E030087BD88 /* App */,
+				847E12612E9790770087BD88 /* Services */,
+				847E12062E9561800087BD88 /* Managers */,
+				0ED3ED102E78050C0034626C /* Views */,
+				847E12502E965BFC0087BD88 /* ViewModels */,
+				0ED3ED152E7806130034626C /* Utilities */,
+				847E12182E956E4E0087BD88 /* Resources */,
+			);
+			path = EventsFeed;
+			sourceTree = "<group>";
+		};
+		0ED3ED102E78050C0034626C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				847E12372E964F230087BD88 /* Main */,
+				847E12432E9652F70087BD88 /* Profile */,
+				841A168E2E8B966C0007F28C /* Events */,
+				841A168F2E8B968E0007F28C /* Auth */,
+				0ED3ED3C2E792F950034626C /* Components */,
+				847E123A2E964FDC0087BD88 /* Modifiers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0ED3ED152E7806130034626C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84497E3F2E937C4800DDBB09 /* ErrorServise */,
+				0E6B55F02E795647004F2446 /* MockData.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0ED3ED162E7806150034626C /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED112E7805370034626C /* DIContainer.swift */,
+				847E12262E95742D0087BD88 /* Assemblies */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		0ED3ED172E7806180034626C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84C1C4512E8C0A9600A39C8D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0ED3ED192E78061F0034626C /* ContentService */ = {
+			isa = PBXGroup;
+			children = (
+				0E6B55EE2E79542A004F2446 /* ConcertServiceProtocol.swift */,
+				84497E522E94118C00DDBB09 /* ConcertService.swift */,
+				847E12232E9573AC0087BD88 /* Models */,
+			);
+			path = ContentService;
+			sourceTree = "<group>";
+		};
+		0ED3ED3C2E792F950034626C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				847E123E2E96507E0087BD88 /* Error */,
+				847E123D2E9650690087BD88 /* Common */,
+				847E123C2E96505F0087BD88 /* Buttons */,
+				847E123B2E9650590087BD88 /* Cards */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		841A168E2E8B966C0007F28C /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED322E7928A00034626C /* EventsFeedView.swift */,
+				841A16962E8BC9570007F28C /* EventsFeedHeaderView.swift */,
+				8440C6762E8535F400EA6A9D /* ExploreView.swift */,
+				847E12382E964FCC0087BD88 /* ConcertSection.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		841A168F2E8B968E0007F28C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				84C1C44F2E8C091F00A39C8D /* LoadingView.swift */,
+				0ED3ED262E7813CA0034626C /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		84497E3F2E937C4800DDBB09 /* ErrorServise */ = {
+			isa = PBXGroup;
+			children = (
+				84497E402E937C6900DDBB09 /* ErrorService.swift */,
+				84497E542E9415A800DDBB09 /* AppError.swift */,
+				847E121F2E95724B0087BD88 /* MusicServiceAuthError.swift */,
+				847E121D2E95724A0087BD88 /* AuthError.swift */,
+			);
+			path = ErrorServise;
+			sourceTree = "<group>";
+		};
+		84497E442E93A07500DDBB09 /* SpotifyMusicService */ = {
+			isa = PBXGroup;
+			children = (
+				8466420B2E8F8D760092F691 /* SpotifyServiceClient.swift */,
+				84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */,
+				84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */,
+				84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */,
+			);
+			path = SpotifyMusicService;
+			sourceTree = "<group>";
+		};
+		84497E4D2E93BC4000DDBB09 /* AppleMusicService */ = {
+			isa = PBXGroup;
+			children = (
+				8466420D2E8F8DA50092F691 /* AppleMusicClient.swift */,
+			);
+			path = AppleMusicService;
+			sourceTree = "<group>";
+		};
+		847E11E72E95325C0087BD88 /* YouTubeMusicService */ = {
+			isa = PBXGroup;
+			children = (
+				847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */,
+				847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */,
+				847E11EC2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift */,
+				847E11E82E95328E0087BD88 /* YouTubeMusicConstants.swift */,
+			);
+			path = YouTubeMusicService;
+			sourceTree = "<group>";
+		};
+		847E12052E9561730087BD88 /* MusicService */ = {
+			isa = PBXGroup;
+			children = (
+				847E12072E9561900087BD88 /* Core */,
+				84497E442E93A07500DDBB09 /* SpotifyMusicService */,
+				847E11E72E95325C0087BD88 /* YouTubeMusicService */,
+				84497E4D2E93BC4000DDBB09 /* AppleMusicService */,
+				847E12192E956F120087BD88 /* Models */,
+			);
+			path = MusicService;
+			sourceTree = "<group>";
+		};
+		847E12062E9561800087BD88 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */,
+				0ED3ED222E780A980034626C /* CoordinatedSessionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		847E12072E9561900087BD88 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				847E12622E9792020087BD88 /* MusicServiceProtocols.swift */,
+				847E12642E9792680087BD88 /* MusicServiceClient.swift */,
+				847E12662E9792B90087BD88 /* WebAuthHandler.swift */,
+				847E12682E9792D20087BD88 /* TokenStorage.swift */,
+				847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */,
+				847E12132E9562C30087BD88 /* Notifications.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		847E12172E956E030087BD88 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */,
+				0ED3ED302E7925050034626C /* AppDelegate.swift */,
+				0ED3ED162E7806150034626C /* DIContainer */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		847E12182E956E4E0087BD88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED1B2E7808060034626C /* Info.plist */,
+				0ED3ED092E7805090034626C /* Assets.xcassets */,
+				841A16982E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		847E12192E956F120087BD88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84497E502E93BCE200DDBB09 /* MusicService.swift */,
+				847E121A2E956F640087BD88 /* MusicServiceType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		847E121C2E956F9C0087BD88 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED1C2E7809820034626C /* AuthServiceProtocol.swift */,
+				0ED3ED1E2E7809A70034626C /* GoogleAuthService.swift */,
+				84497E4E2E93BCBB00DDBB09 /* UserSessionManager.swift */,
+				0ED3ED172E7806180034626C /* Models */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		847E12232E9573AC0087BD88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				847E12212E9573AC0087BD88 /* Concert.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		847E12262E95742D0087BD88 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				847E122B2E9574480087BD88 /* FoundationAssembly.swift */,
+				847E12292E9574470087BD88 /* AuthenticationAssembly.swift */,
+				847E12272E9574460087BD88 /* SpotifyAssembly.swift */,
+				0ED3ED202E780A050034626C /* YouTubeMusicAssembly.swift */,
+				847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */,
+				847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		847E12372E964F230087BD88 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED242E7813920034626C /* RootView.swift */,
+				0ED3ED282E7813E60034626C /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		847E123A2E964FDC0087BD88 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				841A169C2E8BDEF80007F28C /* Shimmer.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		847E123B2E9650590087BD88 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				841A169A2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift */,
+				8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		847E123C2E96505F0087BD88 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED3D2E792FD60034626C /* FilterButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		847E123D2E9650690087BD88 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				847E123F2E9650BC0087BD88 /* InfoRow.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		847E123E2E96507E0087BD88 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				847E12412E96517F0087BD88 /* ErrorBannerView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		847E12432E9652F70087BD88 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED342E7928BB0034626C /* ProfileView.swift */,
+				847E12442E9653170087BD88 /* ProfileHeaderView.swift */,
+				847E124E2E9653230087BD88 /* UserInfoCardView.swift */,
+				847E124A2E9653210087BD88 /* MusicServiceRowView.swift */,
+				847E124C2E9653220087BD88 /* ConnectedServicesView.swift */,
+				847E12482E96531F0087BD88 /* AppInfoView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		847E12502E965BFC0087BD88 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0E6B55EC2E7953CF004F2446 /* EventsFeedViewModel.swift */,
+				847E12512E965C290087BD88 /* RootViewModel.swift */,
+				847E12532E965C3E0087BD88 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		847E12612E9790770087BD88 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				847E121C2E956F9C0087BD88 /* Authentication */,
+				847E12052E9561730087BD88 /* MusicService */,
+				0ED3ED192E78061F0034626C /* ContentService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0ED3ECD62E78043D0034626C /* EventsFeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ED3ECF82E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeed" */;
+			buildPhases = (
+				0ED3ECD32E78043D0034626C /* Sources */,
+				0ED3ECD42E78043D0034626C /* Frameworks */,
+				0ED3ECD52E78043D0034626C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventsFeed;
+			packageProductDependencies = (
+				0ED3ED022E7804B60034626C /* Swinject */,
+				0ED3ED052E7804ED0034626C /* GoogleSignIn */,
+				0ED3ED072E7804ED0034626C /* GoogleSignInSwift */,
+				841928682E869AEA0043F321 /* Kingfisher */,
+				846642162E8F9A520092F691 /* SpotifyiOS */,
+			);
+			productName = EventsFeed;
+			productReference = 0ED3ECD72E78043D0034626C /* EventsFeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0ED3ECE32E78043E0034626C /* EventsFeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ED3ECFB2E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeedTests" */;
+			buildPhases = (
+				0ED3ECE02E78043E0034626C /* Sources */,
+				0ED3ECE12E78043E0034626C /* Frameworks */,
+				0ED3ECE22E78043E0034626C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ED3ECE62E78043E0034626C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0ED3ECE72E78043E0034626C /* EventsFeedTests */,
+			);
+			name = EventsFeedTests;
+			packageProductDependencies = (
+			);
+			productName = EventsFeedTests;
+			productReference = 0ED3ECE42E78043E0034626C /* EventsFeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0ED3ECED2E78043E0034626C /* EventsFeedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ED3ECFE2E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeedUITests" */;
+			buildPhases = (
+				0ED3ECEA2E78043E0034626C /* Sources */,
+				0ED3ECEB2E78043E0034626C /* Frameworks */,
+				0ED3ECEC2E78043E0034626C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ED3ECF02E78043E0034626C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0ED3ECF12E78043E0034626C /* EventsFeedUITests */,
+			);
+			name = EventsFeedUITests;
+			packageProductDependencies = (
+			);
+			productName = EventsFeedUITests;
+			productReference = 0ED3ECEE2E78043E0034626C /* EventsFeedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0ED3ECCF2E78043D0034626C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					0ED3ECD62E78043D0034626C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					0ED3ECE32E78043E0034626C = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0ED3ECD62E78043D0034626C;
+					};
+					0ED3ECED2E78043E0034626C = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0ED3ECD62E78043D0034626C;
+					};
+				};
+			};
+			buildConfigurationList = 0ED3ECD22E78043D0034626C /* Build configuration list for PBXProject "EventsFeed" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0ED3ECCE2E78043D0034626C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0ED3ED012E7804B60034626C /* XCRemoteSwiftPackageReference "Swinject" */,
+				0ED3ED042E7804ED0034626C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				841928672E8693520043F321 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				846642152E8F9A520092F691 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0ED3ECD82E78043D0034626C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0ED3ECD62E78043D0034626C /* EventsFeed */,
+				0ED3ECE32E78043E0034626C /* EventsFeedTests */,
+				0ED3ECED2E78043E0034626C /* EventsFeedUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0ED3ECD52E78043D0034626C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED3ED0F2E7805090034626C /* Assets.xcassets in Resources */,
+				841A16992E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECE22E78043E0034626C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECEC2E78043E0034626C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0ED3ECD32E78043D0034626C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847E124F2E9653230087BD88 /* UserInfoCardView.swift in Sources */,
+				0ED3ED252E7813920034626C /* RootView.swift in Sources */,
+				8466420C2E8F8D760092F691 /* SpotifyServiceClient.swift in Sources */,
+				847E12692E9792D20087BD88 /* TokenStorage.swift in Sources */,
+				8440C67D2E8543ED00EA6A9D /* ConcertCardView.swift in Sources */,
+				0ED3ED1F2E7809A70034626C /* GoogleAuthService.swift in Sources */,
+				847E12402E9650BC0087BD88 /* InfoRow.swift in Sources */,
+				847E121E2E95724A0087BD88 /* AuthError.swift in Sources */,
+				0ED3ED272E7813CA0034626C /* LoginView.swift in Sources */,
+				0ED3ED1D2E7809820034626C /* AuthServiceProtocol.swift in Sources */,
+				0ED3ED352E7928BB0034626C /* ProfileView.swift in Sources */,
+				8440C6772E8535F400EA6A9D /* ExploreView.swift in Sources */,
+				0E6B55F12E795647004F2446 /* MockData.swift in Sources */,
+				847E122E2E9574AA0087BD88 /* ManagersAssembly.swift in Sources */,
+				0ED3ED212E780A050034626C /* YouTubeMusicAssembly.swift in Sources */,
+				847E12202E95724B0087BD88 /* MusicServiceAuthError.swift in Sources */,
+				847E11EF2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift in Sources */,
+				847E12632E9792020087BD88 /* MusicServiceProtocols.swift in Sources */,
+				0ED3ED3E2E792FD60034626C /* FilterButton.swift in Sources */,
+				847E12252E9573AC0087BD88 /* Concert.swift in Sources */,
+				0ED3ED312E7925050034626C /* AppDelegate.swift in Sources */,
+				841A169B2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift in Sources */,
+				0E6B55EF2E79542A004F2446 /* ConcertServiceProtocol.swift in Sources */,
+				841A16972E8BC9570007F28C /* EventsFeedHeaderView.swift in Sources */,
+				847E12282E9574460087BD88 /* SpotifyAssembly.swift in Sources */,
+				847E11F12E9533040087BD88 /* YouTubeMusicServiceClient.swift in Sources */,
+				847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */,
+				0ED3ED122E7805370034626C /* DIContainer.swift in Sources */,
+				847E12672E9792B90087BD88 /* WebAuthHandler.swift in Sources */,
+				847E122A2E9574470087BD88 /* AuthenticationAssembly.swift in Sources */,
+				847E124B2E9653210087BD88 /* MusicServiceRowView.swift in Sources */,
+				84497E4F2E93BCBB00DDBB09 /* UserSessionManager.swift in Sources */,
+				0ED3ED0E2E7805090034626C /* EventsFeedApp.swift in Sources */,
+				84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */,
+				84497E5F2E94E03100DDBB09 /* SpotifyTokenStorage.swift in Sources */,
+				84497E412E937C6900DDBB09 /* ErrorService.swift in Sources */,
+				0ED3ED332E7928A00034626C /* EventsFeedView.swift in Sources */,
+				0ED3ED232E780A980034626C /* CoordinatedSessionManager.swift in Sources */,
+				0E6B55ED2E7953CF004F2446 /* EventsFeedViewModel.swift in Sources */,
+				847E11E92E95328E0087BD88 /* YouTubeMusicConstants.swift in Sources */,
+				84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */,
+				847E12142E9562C30087BD88 /* Notifications.swift in Sources */,
+				847E11ED2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift in Sources */,
+				847E12522E965C290087BD88 /* RootViewModel.swift in Sources */,
+				847E122C2E9574480087BD88 /* FoundationAssembly.swift in Sources */,
+				84497E512E93BCE200DDBB09 /* MusicService.swift in Sources */,
+				84497E552E9415A800DDBB09 /* AppError.swift in Sources */,
+				847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */,
+				84C1C4522E8C0A9600A39C8D /* User.swift in Sources */,
+				847E12392E964FCC0087BD88 /* ConcertSection.swift in Sources */,
+				847E12542E965C3E0087BD88 /* ProfileViewModel.swift in Sources */,
+				847E12452E9653170087BD88 /* ProfileHeaderView.swift in Sources */,
+				847E12492E96531F0087BD88 /* AppInfoView.swift in Sources */,
+				0ED3ED292E7813E60034626C /* MainTabView.swift in Sources */,
+				841A169D2E8BDEF80007F28C /* Shimmer.swift in Sources */,
+				84DFC9D32E94E0CC00FB1C34 /* SpotifyConstants.swift in Sources */,
+				84C1C4502E8C091F00A39C8D /* LoadingView.swift in Sources */,
+				847E12302E9574CD0087BD88 /* ViewModelsAssembly.swift in Sources */,
+				84497E462E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift in Sources */,
+				8466420E2E8F8DA50092F691 /* AppleMusicClient.swift in Sources */,
+				847E124D2E9653220087BD88 /* ConnectedServicesView.swift in Sources */,
+				847E12162E9562CA0087BD88 /* MusicServiceNotificationKeys.swift in Sources */,
+				847E121B2E956F640087BD88 /* MusicServiceType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECE02E78043E0034626C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED3ECEA2E78043E0034626C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0ED3ECE62E78043E0034626C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ED3ECD62E78043D0034626C /* EventsFeed */;
+			targetProxy = 0ED3ECE52E78043E0034626C /* PBXContainerItemProxy */;
+		};
+		0ED3ECF02E78043E0034626C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ED3ECD62E78043D0034626C /* EventsFeed */;
+			targetProxy = 0ED3ECEF2E78043E0034626C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ED3ECF62E78043E0034626C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0ED3ECF72E78043E0034626C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0ED3ECF92E78043E0034626C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventsFeed/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0ED3ECFA2E78043E0034626C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventsFeed/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0ED3ECFC2E78043E0034626C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventsFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EventsFeed";
+			};
+			name = Debug;
+		};
+		0ED3ECFD2E78043E0034626C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeedTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EventsFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EventsFeed";
+			};
+			name = Release;
+		};
+		0ED3ECFF2E78043E0034626C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EventsFeed;
+			};
+			name = Debug;
+		};
+		0ED3ED002E78043E0034626C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5U6N2764N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oneday.com.EventsFeedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EventsFeed;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0ED3ECD22E78043D0034626C /* Build configuration list for PBXProject "EventsFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED3ECF62E78043E0034626C /* Debug */,
+				0ED3ECF72E78043E0034626C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ED3ECF82E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED3ECF92E78043E0034626C /* Debug */,
+				0ED3ECFA2E78043E0034626C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ED3ECFB2E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED3ECFC2E78043E0034626C /* Debug */,
+				0ED3ECFD2E78043E0034626C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ED3ECFE2E78043E0034626C /* Build configuration list for PBXNativeTarget "EventsFeedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED3ECFF2E78043E0034626C /* Debug */,
+				0ED3ED002E78043E0034626C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0ED3ED012E7804B60034626C /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.0;
+			};
+		};
+		0ED3ED042E7804ED0034626C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		841928672E8693520043F321 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+		846642152E8F9A520092F691 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spotify/ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0ED3ED022E7804B60034626C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ED3ED012E7804B60034626C /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		0ED3ED052E7804ED0034626C /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ED3ED042E7804ED0034626C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		0ED3ED072E7804ED0034626C /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ED3ED042E7804ED0034626C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		841928682E869AEA0043F321 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 841928672E8693520043F321 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		846642162E8F9A520092F691 /* SpotifyiOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846642152E8F9A520092F691 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SpotifyiOS;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0ED3ECCF2E78043D0034626C /* Project object */;
+}
