@@ -6,14 +6,17 @@ struct ConcertCardPlaceholderView: View {
             // Заглушка для хедера картки
             HStack {
                 Circle()
+                    .fill(Color.gray.opacity(0.3))
                     .frame(width: 40, height: 40)
                     .shimmer()
                 
                 VStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 3)
-                        .frame(width: 100, height: 10)
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 100, height: 12)
                         .shimmer()
-                    RoundedRectangle(cornerRadius: 3)
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color.gray.opacity(0.3))
                         .frame(width: 60, height: 10)
                         .shimmer()
                 }
@@ -23,47 +26,53 @@ struct ConcertCardPlaceholderView: View {
             .padding(.top)
 
             // Заглушка для зображення
-            ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(height: 300)
-                    
-                Image(systemName: "music.microphone.circle")
-                    .resizable()
-                    .padding()
-                    .frame(height: 300)
-                    .aspectRatio(contentMode: .fill)
-                    .opacity(0.25)
-            }
-            
-            .shimmer()
-            
-            
-            
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color.gray.opacity(0.3))
+                .frame(height: 200)
+                .overlay(
+                    Image(systemName: "music.microphone.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding()
+                        .foregroundColor(.gray.opacity(0.5))
+                )
+                .shimmer()
+
             // Заглушка для футера
-            VStack(alignment: .leading, spacing: 4) {
-                RoundedRectangle(cornerRadius: 3)
-                    .frame(width: 150, height: 15)
+            VStack(alignment: .leading, spacing: 8) {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 150, height: 16)
                     .shimmer()
                 
-                RoundedRectangle(cornerRadius: 3)
-                    .frame(width: 80, height: 10)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 80, height: 12)
                     .shimmer()
                 
-                RoundedRectangle(cornerRadius: 3)
-                    .frame(width: 120, height: 10)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 120, height: 12)
                     .shimmer()
             }
             .padding(.horizontal)
             .padding(.bottom)
         }
-        .opacity(0.6)
         .background(Color(.systemBackground))
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .padding()
+        .cornerRadius(12)
+        .shadow(radius: 3)
+        .padding(.horizontal)
     }
 }
 
-#Preview {
+#Preview("Default") {
     ConcertCardPlaceholderView()
+}
+
+#Preview("In List") {
+    ScrollView {
+        ForEach(0..<13, id: \.self) { _ in
+            ConcertCardPlaceholderView()
+        }
+    }
 }

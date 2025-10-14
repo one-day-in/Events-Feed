@@ -89,9 +89,10 @@ struct MockData {
             id: "123456789",
             name: "John Doe",
             email: "john.doe@example.com",
-            profileImageURL: "https://picsum.photos/200",
+            avatarURL: "https://picsum.photos/200",
             givenName: "John",
-            familyName: "Doe"
+            familyName: "Doe",
+            isEmailVerified: true
         )
     }
 }

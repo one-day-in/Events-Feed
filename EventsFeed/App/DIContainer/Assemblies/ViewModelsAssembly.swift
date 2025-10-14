@@ -2,30 +2,25 @@ import Foundation
 import Swinject
 
 final class ViewModelsAssembly: Assembly {
-    func assemble(container: Container) {
-        // MARK: - ViewModels
-        
-        // EventsFeedViewModel
-        container.register(EventsFeedViewModel.self) { resolver in
+    nonisolated func assemble(container: Container) {
+        // MARK: - EventsFeed
+        container.registerMainActor(EventsFeedContentViewModel.self) { resolver in
             let concertService = resolver.resolve(ConcertServiceProtocol.self)!
             let errorService = resolver.resolve(ErrorService.self)!
-            return EventsFeedViewModel(
+            return EventsFeedContentViewModel(
                 concertService: concertService,
                 errorService: errorService
             )
         }.inObjectScope(.container)
         
-        // RootViewModel
-        container.register(RootViewModel.self) { resolver in
-            let sessionManager = resolver.resolve(CoordinatedSessionManager.self)!
-            return RootViewModel(sessionManager: sessionManager)
+        container.registerMainActor(EventsFeedBehaviorViewModel.self) { _ in
+            return EventsFeedBehaviorViewModel()
         }.inObjectScope(.container)
         
-        // ProfileViewModel
-        container.register(ProfileViewModel.self) { resolver in
-            let sessionManager = resolver.resolve(CoordinatedSessionManager.self)!
-            return ProfileViewModel(sessionManager: sessionManager)
+        container.registerMainActor(EventsFeedManager.self) { resolver in
+            let content = resolver.resolve(EventsFeedContentViewModel.self)!
+            let behavior = resolver.resolve(EventsFeedBehaviorViewModel.self)!
+            return EventsFeedManager(content: content, behavior: behavior)
         }.inObjectScope(.container)
-               
     }
 }

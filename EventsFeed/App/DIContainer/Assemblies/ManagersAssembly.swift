@@ -3,31 +3,22 @@ import Swinject
 
 final class ManagersAssembly: Assembly {
     func assemble(container: Container) {
-        
-        // MARK: - Music Services Manager
-        container.register(MusicServiceManager.self) { resolver in
-            let spotifyClient = resolver.resolve(SpotifyServiceClient.self)!
-            let youTubeMusicClient = resolver.resolve(YouTubeMusicServiceClient.self)!
+        // MARK: - Session Manager
+        container.registerMainActor(SessionManager.self) { resolver in
+            let authManager = resolver.resolve(AuthManager.self)!
+            let musicServiceManager = resolver.resolve(MusicServiceManager.self)!
             let errorService = resolver.resolve(ErrorService.self)!
-            return MusicServiceManager(
-                spotifyClient: spotifyClient,
-                youTubeMusicClient: youTubeMusicClient,
+            return SessionManager(
+                authManager: authManager,
+                musicServiceManager: musicServiceManager,
                 errorService: errorService
             )
         }.inObjectScope(.container)
         
-        container.register((any MusicServiceManagerProtocol).self) { resolver in
-            return resolver.resolve(MusicServiceManager.self)!
-        }.inObjectScope(.container)
-
-        // MARK: - Main Coordinator
-        container.register(CoordinatedSessionManager.self) { resolver in
-            let userSessionManager = resolver.resolve((any UserSessionManagerProtocol).self)!
-            let musicServiceManager = resolver.resolve(MusicServiceManager.self)!
-            return CoordinatedSessionManager(
-                userSessionManager: userSessionManager,
-                musicServiceManager: musicServiceManager
-            )
+        // MARK: - App State Manager
+        container.registerMainActor(AppStateManager.self) { resolver in
+            let sessionManager = resolver.resolve(SessionManager.self)!
+            return AppStateManager(sessionManager: sessionManager)
         }.inObjectScope(.container)
     }
 }

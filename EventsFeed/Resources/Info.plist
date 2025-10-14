@@ -4,7 +4,7 @@
 <dict>
     <key>CFBundleURLTypes</key>
     <array>
-        <!-- Google Sign-In (існуючий) -->
+        <!-- Google Sign-In -->
         <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
@@ -26,7 +26,7 @@
                 <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
             </array>
         </dict>
-        <!-- YouTube Music Auth (оновлений) -->
+        <!-- YouTube Music Auth -->
         <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
@@ -52,5 +52,13 @@
         <key>NSAllowsArbitraryLoads</key>
         <true/>
     </dict>
+    
+    <!-- Apple Music Permissions -->
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Цей додаток використовує Apple Music для відтворення вашої музики та створення плейлистів</string>
+    
+    <!-- Media Player Framework -->
+    <key>com.apple.developer.media-player.identifier</key>
+    <string>$(TeamIdentifierPrefix)$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 </dict>
 </plist>

@@ -1,4 +1,3 @@
-import UIKit
 import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -8,8 +7,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         print("✅ Додаток запущено")
-        
-        // Базова ініціалізація сервісів
         initializeEssentialServices()
         
         return true
@@ -19,7 +16,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("🔄 AppDelegate: ініціалізація основних сервісів")
         
         let errorService = DIContainer.shared.resolve(ErrorService.self)
-        let sessionManager = DIContainer.shared.resolve(CoordinatedSessionManager.self)
+        let sessionManager = DIContainer.shared.resolve(SessionManager.self)
         
         print("   ErrorService instance: \(ObjectIdentifier(errorService))")
         print("   SessionManager instance: \(ObjectIdentifier(sessionManager))")
@@ -40,10 +37,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("🔗 Обробка URL: \(url)")
         
         // 1. Обробка Spotify callback
-        if url.absoluteString.contains("spotify-auth") {
+        if url.absoluteString.contains("spotify") {
             print("✅ URL оброблено Spotify")
             
-            // Отримуємо SpotifyServiceClient через DI контейнер
             let spotifyClient = DIContainer.shared.resolve(SpotifyServiceClient.self)
             spotifyClient.handleAuthCallback(url: url)
             
@@ -54,21 +50,29 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if url.scheme == "com.googleusercontent.apps.487751122186-3jkc1mkdi0pfr82kcpjtnipv470utl1s" {
             print("✅ URL оброблено YouTube Music")
             
-            // Отримуємо YouTubeMusicServiceClient через DI контейнер
             let youTubeMusicClient = DIContainer.shared.resolve(YouTubeMusicServiceClient.self)
             youTubeMusicClient.handleAuthCallback(url: url)
             
             return true
         }
-        
+                
         // 3. Обробка Google Sign-In
-        let authService = DIContainer.shared.resolve(AuthServiceProtocol.self)
-        if authService.handle(url) {
+        let authManager = DIContainer.shared.resolve(AuthManager.self)
+        if authManager.handle(url) {
             print("✅ URL оброблено Google Sign-In")
             return true
         }
         
         print("❌ URL не розпізнано: \(url)")
         return false
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print("📱 Додаток став активним")
+        // Можна додати відновлення сесії при активізації додатка
+        Task { @MainActor in
+            let sessionManager = DIContainer.shared.resolve(SessionManager.self)
+            await sessionManager.restoreSession()
+        }
     }
 }

@@ -1,135 +1,117 @@
 import Foundation
 import Combine
 
-protocol MusicServiceManagerProtocol: ObservableObject {
-    var musicServices: [MusicService] { get }
-    var isSpotifyConnected: Bool { get }
-    var isYouTubeMusicConnected: Bool { get }
-    func connectSpotify()
-    func disconnectSpotify()
-    func connectYouTubeMusic()
-    func disconnectYouTubeMusic()
-    func updateMusicServices()
-}
-
-final class MusicServiceManager: MusicServiceManagerProtocol {
-    @Published var musicServices: [MusicService] = []
+@MainActor
+final class MusicServiceManager: ObservableObject {
+    // MARK: - Published Properties
+    @Published private(set) var musicServices: [MusicService] = []
+    var musicServicesPublisher: Published<[MusicService]>.Publisher { $musicServices }
     
-    private let spotifyClient: SpotifyServiceClient
-    private let youTubeMusicClient: YouTubeMusicServiceClient
+    private let clients: [MusicServiceType: any MusicServiceProtocol]
     private let errorService: ErrorService
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Initialization
     init(
-        spotifyClient: SpotifyServiceClient = SpotifyServiceClient(),
-        youTubeMusicClient: YouTubeMusicServiceClient = YouTubeMusicServiceClient(),
+        spotifyClient: SpotifyServiceClient,
+        youTubeMusicClient: YouTubeMusicServiceClient,
+        appleMusicClient: AppleMusicServiceClient,
         errorService: ErrorService = .shared
     ) {
-        self.spotifyClient = spotifyClient
-        self.youTubeMusicClient = youTubeMusicClient
+        self.clients = [
+            .spotify: spotifyClient,
+            .youtubeMusic: youTubeMusicClient,
+            .appleMusic: appleMusicClient
+        ]
         self.errorService = errorService
-        setupSpotifyObservers()
-        setupYouTubeMusicObservers()
+        
+        setupObservers()
         updateMusicServices()
     }
+    
+    // MARK: - Public Methods
+    func connectService(_ type: MusicServiceType) {
+        clients[type]?.authenticate()
+    }
+    
+    func disconnectService(_ type: MusicServiceType) {
+        clients[type]?.disconnect()
+    }
+    
+    func isServiceConnected(_ type: MusicServiceType) -> Bool {
+        clients[type]?.isAuthenticated() ?? false
+    }
+    
+    // MARK: - Private Methods
+    private func setupObservers() {
+        let notificationPairs: [(Notification.Name, MusicServiceType)] = [
+            (.spotifyAuthSuccess, .spotify),
+            (.spotifyDisconnected, .spotify),
+            (.youtubeMusicAuthSuccess, .youtubeMusic),
+            (.youtubeMusicDisconnected, .youtubeMusic),
+            (.appleMusicAuthSuccess, .appleMusic),
+            (.appleMusicDisconnected, .appleMusic)
+        ]
         
-    func updateMusicServices() {
-        var updatedServices: [MusicService] = []
-        
-        if spotifyClient.isAuthenticated() {
-            updatedServices.append(MusicService(
+        for (notification, serviceType) in notificationPairs {
+            NotificationCenter.default.publisher(for: notification)
+                .receive(on: RunLoop.main)
+                .sink { [weak self] _ in
+                    self?.handleServiceUpdate(serviceType)
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    private func handleServiceUpdate(_ type: MusicServiceType) {
+        updateMusicServices()
+    }
+    
+    private func handleServiceError(_ error: String, for type: MusicServiceType) {
+        switch type {
+        case .spotify:
+            errorService.reportSpotifyError(error)
+        case .youtubeMusic:
+            errorService.reportYouTubeMusicError(error)
+        case .appleMusic:
+            errorService.reportAppleMusicError(error)
+        }
+    }
+    
+    private func updateMusicServices() {
+        let updatedServices = MusicServiceType.allCases.compactMap { type in
+            isServiceConnected(type) ? createMusicService(for: type) : nil
+        }
+            self.musicServices = updatedServices
+    }
+    
+    private func createMusicService(for type: MusicServiceType) -> MusicService {
+        switch type {
+        case .spotify:
+            return MusicService(
                 id: "spotify",
                 name: "Spotify",
                 isConnected: true,
                 iconName: "spotify",
                 serviceType: .spotify
-            ))
-        }
-        
-        if youTubeMusicClient.isAuthenticated() {
-            updatedServices.append(MusicService(
+            )
+        case .youtubeMusic:
+            return MusicService(
                 id: "youtube-music",
                 name: "YouTube Music",
                 isConnected: true,
                 iconName: "play.circle.fill",
                 serviceType: .youtubeMusic
-            ))
+            )
+        case .appleMusic:
+            return MusicService(
+                id: "apple-music",
+                name: "Apple Music",
+                isConnected: true,
+                iconName: "applelogo",
+                serviceType: .appleMusic
+            )
         }
-        
-        musicServices = updatedServices
-    }
-    
-    private func setupSpotifyObservers() {
-        NotificationCenter.default.publisher(for: .spotifyAuthSuccess)
-            .sink { [weak self] _ in
-                self?.updateMusicServices()
-            }
-            .store(in: &cancellables)
-            
-        NotificationCenter.default.publisher(for: .spotifyAuthError)
-            .sink { [weak self] notification in
-                if let error = notification.object as? String {
-                    self?.errorService.reportSpotifyError(error)
-                }
-            }
-            .store(in: &cancellables)
-            
-        NotificationCenter.default.publisher(for: .spotifyDisconnected)
-            .sink { [weak self] _ in
-                self?.updateMusicServices()
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func setupYouTubeMusicObservers() {
-        NotificationCenter.default.publisher(for: .youtubeMusicAuthSuccess)
-            .sink { [weak self] _ in
-                self?.updateMusicServices()
-            }
-            .store(in: &cancellables)
-            
-        NotificationCenter.default.publisher(for: .youtubeMusicAuthError)
-            .sink { [weak self] notification in
-                if let error = notification.object as? String {
-                    self?.errorService.reportYouTubeMusicError(error)
-                }
-            }
-            .store(in: &cancellables)
-            
-        NotificationCenter.default.publisher(for: .youtubeMusicDisconnected)
-            .sink { [weak self] _ in
-                self?.updateMusicServices()
-            }
-            .store(in: &cancellables)
     }
 }
 
-extension MusicServiceManager {
-    var isSpotifyConnected: Bool {
-        return spotifyClient.isAuthenticated()
-    }
-    
-    func connectSpotify() {
-        spotifyClient.authenticate()
-    }
-    
-    func disconnectSpotify() {
-        spotifyClient.disconnect()
-        updateMusicServices()
-    }
-}
-
-extension MusicServiceManager {
-    var isYouTubeMusicConnected: Bool {
-        return youTubeMusicClient.isAuthenticated()
-    }
-    
-    func connectYouTubeMusic() {
-        youTubeMusicClient.authenticate()
-    }
-    
-    func disconnectYouTubeMusic() {
-        youTubeMusicClient.disconnect()
-        updateMusicServices()
-    }
-}

@@ -1,21 +1,29 @@
-import Foundation
 import Swinject
-import GoogleSignIn
 
 final class AuthenticationAssembly: Assembly {
     func assemble(container: Container) {
         // MARK: - Authentication Services
-        container.register(AuthServiceProtocol.self) { _ in
+        container.registerMainActor(AppleAuthService.self) { resolver in
+            let errorService = resolver.resolve(ErrorService.self)!
+            return AppleAuthService(errorService: errorService)
+        }.inObjectScope(.container)
+        
+        container.registerMainActor(GoogleAuthService.self) { _ in
             return GoogleAuthService()
         }.inObjectScope(.container)
-
-        container.register((any UserSessionManagerProtocol).self) { resolver in
-            let authService = resolver.resolve(AuthServiceProtocol.self)!
-            let errorService = resolver.resolve(ErrorService.self)!
-            return UserSessionManager(
-                authService: authService,
-                errorService: errorService
+        
+        // MARK: - Auth Manager
+        container.registerMainActor(AuthManager.self) { resolver in
+            let googleAuth = resolver.resolve(GoogleAuthService.self)!
+            let appleAuth = resolver.resolve(AppleAuthService.self)!
+            return AuthManager(
+                googleAuthService: googleAuth,
+                appleAuthService: appleAuth
             )
+        }.inObjectScope(.container)
+        
+        container.register((any AuthServiceProtocol).self) { resolver in
+            return resolver.resolve(AuthManager.self)!
         }.inObjectScope(.container)
     }
 }
