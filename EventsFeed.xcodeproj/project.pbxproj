@@ -15,10 +15,8 @@
 		0ED3ED082E7804ED0034626C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ED3ED072E7804ED0034626C /* GoogleSignInSwift */; };
 		0ED3ED0E2E7805090034626C /* EventsFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */; };
 		0ED3ED0F2E7805090034626C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED3ED092E7805090034626C /* Assets.xcassets */; };
-		0ED3ED122E7805370034626C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED112E7805370034626C /* DIContainer.swift */; };
 		0ED3ED1F2E7809A70034626C /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED1E2E7809A70034626C /* GoogleAuthService.swift */; };
-		0ED3ED252E7813920034626C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED242E7813920034626C /* RootView.swift */; };
-		0ED3ED272E7813CA0034626C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED262E7813CA0034626C /* LoginView.swift */; };
+		0ED3ED272E7813CA0034626C /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED262E7813CA0034626C /* AuthView.swift */; };
 		0ED3ED292E7813E60034626C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED282E7813E60034626C /* MainTabView.swift */; };
 		0ED3ED312E7925050034626C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED302E7925050034626C /* AppDelegate.swift */; };
 		0ED3ED332E7928A00034626C /* EventsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3ED322E7928A00034626C /* EventsFeedView.swift */; };
@@ -33,8 +31,7 @@
 		84497E412E937C6900DDBB09 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E402E937C6900DDBB09 /* ErrorService.swift */; };
 		84497E462E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */; };
 		84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */; };
-		84497E4F2E93BCBB00DDBB09 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4E2E93BCBB00DDBB09 /* SessionManager.swift */; };
-		84497E512E93BCE200DDBB09 /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E502E93BCE200DDBB09 /* MusicService.swift */; };
+		84497E4F2E93BCBB00DDBB09 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4E2E93BCBB00DDBB09 /* UserManager.swift */; };
 		84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E522E94118C00DDBB09 /* ConcertService.swift */; };
 		84497E552E9415A800DDBB09 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E542E9415A800DDBB09 /* AppError.swift */; };
 		84497E5F2E94E03100DDBB09 /* SpotifyTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */; };
@@ -46,16 +43,9 @@
 		847E11EF2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */; };
 		847E11F12E9533040087BD88 /* YouTubeMusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */; };
 		847E12142E9562C30087BD88 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12132E9562C30087BD88 /* Notifications.swift */; };
-		847E12162E9562CA0087BD88 /* MusicServiceNotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */; };
-		847E121B2E956F640087BD88 /* MusicServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121A2E956F640087BD88 /* MusicServiceType.swift */; };
 		847E121E2E95724A0087BD88 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121D2E95724A0087BD88 /* AuthError.swift */; };
 		847E12202E95724B0087BD88 /* MusicServiceAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E121F2E95724B0087BD88 /* MusicServiceAuthError.swift */; };
 		847E12252E9573AC0087BD88 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12212E9573AC0087BD88 /* Concert.swift */; };
-		847E12282E9574460087BD88 /* MusicServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12272E9574460087BD88 /* MusicServicesAssembly.swift */; };
-		847E122A2E9574470087BD88 /* AuthenticationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12292E9574470087BD88 /* AuthenticationAssembly.swift */; };
-		847E122C2E9574480087BD88 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122B2E9574480087BD88 /* CoreAssembly.swift */; };
-		847E122E2E9574AA0087BD88 /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */; };
-		847E12302E9574CD0087BD88 /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */; };
 		847E12392E964FCC0087BD88 /* ConcertSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12382E964FCC0087BD88 /* ConcertSection.swift */; };
 		847E12402E9650BC0087BD88 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E123F2E9650BC0087BD88 /* InfoRow.swift */; };
 		847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12412E96517F0087BD88 /* ErrorBannerView.swift */; };
@@ -65,18 +55,32 @@
 		847E124D2E9653220087BD88 /* ConnectedServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124C2E9653220087BD88 /* ConnectedServicesView.swift */; };
 		847E124F2E9653230087BD88 /* UserInfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124E2E9653230087BD88 /* UserInfoCardView.swift */; };
 		847E12632E9792020087BD88 /* MusicServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12622E9792020087BD88 /* MusicServiceProtocols.swift */; };
-		847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12642E9792680087BD88 /* MusicServiceClient.swift */; };
-		847E12672E9792B90087BD88 /* WebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12662E9792B90087BD88 /* WebAuthHandler.swift */; };
-		847E12692E9792D20087BD88 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12682E9792D20087BD88 /* TokenStorage.swift */; };
+		847E12652E9792680087BD88 /* BaseMusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12642E9792680087BD88 /* BaseMusicServiceClient.swift */; };
+		847E12672E9792B90087BD88 /* BaseWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12662E9792B90087BD88 /* BaseWebAuthHandler.swift */; };
+		847E12692E9792D20087BD88 /* BaseTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12682E9792D20087BD88 /* BaseTokenStorage.swift */; };
 		847E126F2E97A85A0087BD88 /* AppleMusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E126E2E97A85A0087BD88 /* AppleMusicServiceClient.swift */; };
 		847E12732E97A85F0087BD88 /* AppleMusicTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12722E97A85F0087BD88 /* AppleMusicTokenStorage.swift */; };
-		847E12782E97A9AE0087BD88 /* SpotifyTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12772E97A9AE0087BD88 /* SpotifyTrack.swift */; };
-		847E127A2E97A9E70087BD88 /* YouTubeMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12792E97A9E70087BD88 /* YouTubeMusic.swift */; };
-		847E127C2E97A9EC0087BD88 /* AppleMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E127B2E97A9EC0087BD88 /* AppleMusic.swift */; };
 		847E12822E97CF840087BD88 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12812E97CF840087BD88 /* Extensions.swift */; };
 		847E12852E98D6C50087BD88 /* AdaptiveLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12842E98D6C50087BD88 /* AdaptiveLayout.swift */; };
 		847E12902E9905C50087BD88 /* AppleMusicWebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E128F2E9905C50087BD88 /* AppleMusicWebAuthHandler.swift */; };
-		84A71E042E9C9063005F0E4C /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E032E9C9063005F0E4C /* ScrollDirection.swift */; };
+		849403AE2EA0E53C00FC96CD /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403AD2EA0E53C00FC96CD /* View+Extensions.swift */; };
+		849403B02EA0E56200FC96CD /* BaseViewWithViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403AF2EA0E56200FC96CD /* BaseViewWithViewModel.swift */; };
+		849403B42EA0E85C00FC96CD /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403B32EA0E85C00FC96CD /* BaseViewModel.swift */; };
+		849403B82EA0EA2100FC96CD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403B72EA0EA2100FC96CD /* AuthViewModel.swift */; };
+		849403BA2EA0EBAA00FC96CD /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403B92EA0EBAA00FC96CD /* MainTabViewModel.swift */; };
+		849403CA2EA0F05C00FC96CD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403C92EA0F05C00FC96CD /* ProfileViewModel.swift */; };
+		849403ED2EA10D2800FC96CD /* ViewModelsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E92EA10D2800FC96CD /* ViewModelsAssembly.swift */; };
+		849403EE2EA10D2800FC96CD /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403EB2EA10D2800FC96CD /* DIContainer.swift */; };
+		849403EF2EA10D2800FC96CD /* ManagersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E72EA10D2800FC96CD /* ManagersAssembly.swift */; };
+		849403F02EA10D2800FC96CD /* MusicServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E82EA10D2800FC96CD /* MusicServicesAssembly.swift */; };
+		849403F12EA10D2800FC96CD /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E62EA10D2800FC96CD /* CoreAssembly.swift */; };
+		849403F22EA10D2800FC96CD /* AuthenticationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E52EA10D2800FC96CD /* AuthenticationAssembly.swift */; };
+		849403F42EA10D5400FC96CD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403F32EA10D5400FC96CD /* RootView.swift */; };
+		849403F72EA205FF00FC96CD /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403F62EA205FF00FC96CD /* AnimationManager.swift */; };
+		849404002EA218A800FC96CD /* AnimatedSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403FF2EA218A800FC96CD /* AnimatedSplashView.swift */; };
+		849404052EA2397000FC96CD /* MusicServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849404042EA2397000FC96CD /* MusicServiceType.swift */; };
+		849404072EA23C4200FC96CD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849404062EA23C4200FC96CD /* NotificationService.swift */; };
+		849404092EA5E3DE00FC96CD /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849404082EA5E3DE00FC96CD /* AuthProvider.swift */; };
 		84A71E082E9C94DB005F0E4C /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E072E9C94DB005F0E4C /* ExploreView.swift */; };
 		84A71E0A2E9C970A005F0E4C /* EventsFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E092E9C970A005F0E4C /* EventsFeedManager.swift */; };
 		84A71E0D2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E0C2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift */; };
@@ -89,16 +93,11 @@
 		84A71E242E9CAB95005F0E4C /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E232E9CAB95005F0E4C /* KeychainHelper.swift */; };
 		84A71E292E9CBF72005F0E4C /* BaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E282E9CBF72005F0E4C /* BaseAuthService.swift */; };
 		84A71E2B2E9CD094005F0E4C /* AuthSignInOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E2A2E9CD094005F0E4C /* AuthSignInOptions.swift */; };
-		84A71E412E9D4770005F0E4C /* ServiceConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E402E9D4770005F0E4C /* ServiceConnectionState.swift */; };
-		84A71E462E9E1218005F0E4C /* LoadingAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E452E9E1218005F0E4C /* LoadingAnimationManager.swift */; };
-		84A71E482E9E123E005F0E4C /* AnimatedLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E472E9E123E005F0E4C /* AnimatedLogoView.swift */; };
-		84A71E4A2E9E1249005F0E4C /* ParticleSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E492E9E1249005F0E4C /* ParticleSystemView.swift */; };
-		84A71E4C2E9E125C005F0E4C /* PulsingCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E4B2E9E125C005F0E4C /* PulsingCirclesView.swift */; };
 		84A71E4F2E9E1337005F0E4C /* AuthLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E4E2E9E1337005F0E4C /* AuthLoadingOverlay.swift */; };
 		84A71E512E9E135F005F0E4C /* AuthTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E502E9E135F005F0E4C /* AuthTransitionView.swift */; };
-		84C1C4502E8C091F00A39C8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C44F2E8C091F00A39C8D /* LoadingView.swift */; };
 		84C1C4522E8C0A9600A39C8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C4512E8C0A9600A39C8D /* User.swift */; };
 		84DFC9D32E94E0CC00FB1C34 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */; };
+		84F279182EA0A51A007938EF /* LogoAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F279172EA0A51A007938EF /* LogoAnimationState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,11 +126,9 @@
 		0ED3ECEE2E78043E0034626C /* EventsFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED3ED092E7805090034626C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedApp.swift; sourceTree = "<group>"; };
-		0ED3ED112E7805370034626C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		0ED3ED1B2E7808060034626C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED3ED1E2E7809A70034626C /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
-		0ED3ED242E7813920034626C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		0ED3ED262E7813CA0034626C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0ED3ED262E7813CA0034626C /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		0ED3ED282E7813E60034626C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		0ED3ED302E7925050034626C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ED3ED322E7928A00034626C /* EventsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedView.swift; sourceTree = "<group>"; };
@@ -145,8 +142,7 @@
 		84497E402E937C6900DDBB09 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
 		84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebAuthHandler.swift; sourceTree = "<group>"; };
 		84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
-		84497E4E2E93BCBB00DDBB09 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		84497E502E93BCE200DDBB09 /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		84497E4E2E93BCBB00DDBB09 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		84497E522E94118C00DDBB09 /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
 		84497E542E9415A800DDBB09 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTokenStorage.swift; sourceTree = "<group>"; };
@@ -157,16 +153,9 @@
 		847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicWebAuthHandler.swift; sourceTree = "<group>"; };
 		847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicServiceClient.swift; sourceTree = "<group>"; };
 		847E12132E9562C30087BD88 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceNotificationKeys.swift; sourceTree = "<group>"; };
-		847E121A2E956F640087BD88 /* MusicServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceType.swift; sourceTree = "<group>"; };
 		847E121D2E95724A0087BD88 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		847E121F2E95724B0087BD88 /* MusicServiceAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceAuthError.swift; sourceTree = "<group>"; };
 		847E12212E9573AC0087BD88 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
-		847E12272E9574460087BD88 /* MusicServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServicesAssembly.swift; sourceTree = "<group>"; };
-		847E12292E9574470087BD88 /* AuthenticationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAssembly.swift; sourceTree = "<group>"; };
-		847E122B2E9574480087BD88 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
-		847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagersAssembly.swift; sourceTree = "<group>"; };
-		847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
 		847E12382E964FCC0087BD88 /* ConcertSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertSection.swift; sourceTree = "<group>"; };
 		847E123F2E9650BC0087BD88 /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		847E12412E96517F0087BD88 /* ErrorBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBannerView.swift; sourceTree = "<group>"; };
@@ -176,18 +165,32 @@
 		847E124C2E9653220087BD88 /* ConnectedServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedServicesView.swift; sourceTree = "<group>"; };
 		847E124E2E9653230087BD88 /* UserInfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCardView.swift; sourceTree = "<group>"; };
 		847E12622E9792020087BD88 /* MusicServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceProtocols.swift; sourceTree = "<group>"; };
-		847E12642E9792680087BD88 /* MusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceClient.swift; sourceTree = "<group>"; };
-		847E12662E9792B90087BD88 /* WebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAuthHandler.swift; sourceTree = "<group>"; };
-		847E12682E9792D20087BD88 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		847E12642E9792680087BD88 /* BaseMusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMusicServiceClient.swift; sourceTree = "<group>"; };
+		847E12662E9792B90087BD88 /* BaseWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebAuthHandler.swift; sourceTree = "<group>"; };
+		847E12682E9792D20087BD88 /* BaseTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTokenStorage.swift; sourceTree = "<group>"; };
 		847E126E2E97A85A0087BD88 /* AppleMusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicServiceClient.swift; sourceTree = "<group>"; };
 		847E12722E97A85F0087BD88 /* AppleMusicTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicTokenStorage.swift; sourceTree = "<group>"; };
-		847E12772E97A9AE0087BD88 /* SpotifyTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTrack.swift; sourceTree = "<group>"; };
-		847E12792E97A9E70087BD88 /* YouTubeMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusic.swift; sourceTree = "<group>"; };
-		847E127B2E97A9EC0087BD88 /* AppleMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusic.swift; sourceTree = "<group>"; };
 		847E12812E97CF840087BD88 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		847E12842E98D6C50087BD88 /* AdaptiveLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayout.swift; sourceTree = "<group>"; };
 		847E128F2E9905C50087BD88 /* AppleMusicWebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicWebAuthHandler.swift; sourceTree = "<group>"; };
-		84A71E032E9C9063005F0E4C /* ScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDirection.swift; sourceTree = "<group>"; };
+		849403AD2EA0E53C00FC96CD /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		849403AF2EA0E56200FC96CD /* BaseViewWithViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewWithViewModel.swift; sourceTree = "<group>"; };
+		849403B32EA0E85C00FC96CD /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		849403B72EA0EA2100FC96CD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		849403B92EA0EBAA00FC96CD /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		849403C92EA0F05C00FC96CD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		849403E52EA10D2800FC96CD /* AuthenticationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAssembly.swift; sourceTree = "<group>"; };
+		849403E62EA10D2800FC96CD /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
+		849403E72EA10D2800FC96CD /* ManagersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagersAssembly.swift; sourceTree = "<group>"; };
+		849403E82EA10D2800FC96CD /* MusicServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServicesAssembly.swift; sourceTree = "<group>"; };
+		849403E92EA10D2800FC96CD /* ViewModelsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembly.swift; sourceTree = "<group>"; };
+		849403EB2EA10D2800FC96CD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		849403F32EA10D5400FC96CD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		849403F62EA205FF00FC96CD /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		849403FF2EA218A800FC96CD /* AnimatedSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashView.swift; sourceTree = "<group>"; };
+		849404042EA2397000FC96CD /* MusicServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceType.swift; sourceTree = "<group>"; };
+		849404062EA23C4200FC96CD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		849404082EA5E3DE00FC96CD /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		84A71E072E9C94DB005F0E4C /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		84A71E092E9C970A005F0E4C /* EventsFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedManager.swift; sourceTree = "<group>"; };
 		84A71E0C2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFeedBehaviorViewModel.swift; sourceTree = "<group>"; };
@@ -200,16 +203,11 @@
 		84A71E232E9CAB95005F0E4C /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		84A71E282E9CBF72005F0E4C /* BaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAuthService.swift; sourceTree = "<group>"; };
 		84A71E2A2E9CD094005F0E4C /* AuthSignInOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInOptions.swift; sourceTree = "<group>"; };
-		84A71E402E9D4770005F0E4C /* ServiceConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConnectionState.swift; sourceTree = "<group>"; };
-		84A71E452E9E1218005F0E4C /* LoadingAnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationManager.swift; sourceTree = "<group>"; };
-		84A71E472E9E123E005F0E4C /* AnimatedLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLogoView.swift; sourceTree = "<group>"; };
-		84A71E492E9E1249005F0E4C /* ParticleSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleSystemView.swift; sourceTree = "<group>"; };
-		84A71E4B2E9E125C005F0E4C /* PulsingCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsingCirclesView.swift; sourceTree = "<group>"; };
 		84A71E4E2E9E1337005F0E4C /* AuthLoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoadingOverlay.swift; sourceTree = "<group>"; };
 		84A71E502E9E135F005F0E4C /* AuthTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTransitionView.swift; sourceTree = "<group>"; };
-		84C1C44F2E8C091F00A39C8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		84C1C4512E8C0A9600A39C8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
+		84F279172EA0A51A007938EF /* LogoAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -278,48 +276,25 @@
 		0ED3ED0C2E7805090034626C /* EventsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				847E12172E956E030087BD88 /* App */,
-				847E12062E9561800087BD88 /* Managers */,
-				847E12612E9790770087BD88 /* Services */,
-				847E12502E965BFC0087BD88 /* ViewModels */,
-				0ED3ED102E78050C0034626C /* Views */,
-				0ED3ED152E7806130034626C /* Utilities */,
-				847E12182E956E4E0087BD88 /* Resources */,
+				847E12172E956E030087BD88 /* 📱 App */,
+				849403972EA0C9BB00FC96CD /* 🎨 Views */,
+				849403962EA0C87D00FC96CD /* 🏗️ Core */,
+				849403CE2EA10AD200FC96CD /* Shared */,
+				0ED3ED1B2E7808060034626C /* Info.plist */,
 			);
 			path = EventsFeed;
-			sourceTree = "<group>";
-		};
-		0ED3ED102E78050C0034626C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				847E12862E98DF2E0087BD88 /* App */,
-				84A71DFD2E9C8D86005F0E4C /* Screens */,
-				0ED3ED3C2E792F950034626C /* Components */,
-				847E123A2E964FDC0087BD88 /* Modifiers */,
-				84A71DFE2E9C8F7C005F0E4C /* Utilities */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		0ED3ED152E7806130034626C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E232E9CAB95005F0E4C /* KeychainHelper.swift */,
 				847E12872E98EA3F0087BD88 /* Enums */,
+				84A71E232E9CAB95005F0E4C /* KeychainHelper.swift */,
 				847E12132E9562C30087BD88 /* Notifications.swift */,
-				847E12152E9562CA0087BD88 /* MusicServiceNotificationKeys.swift */,
 				0E6B55F02E795647004F2446 /* MockData.swift */,
+				84F279172EA0A51A007938EF /* LogoAnimationState.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		0ED3ED162E7806150034626C /* DIContainer */ = {
-			isa = PBXGroup;
-			children = (
-				0ED3ED112E7805370034626C /* DIContainer.swift */,
-				847E12262E95742D0087BD88 /* Assemblies */,
-			);
-			path = DIContainer;
 			sourceTree = "<group>";
 		};
 		0ED3ED192E78061F0034626C /* Content */ = {
@@ -331,158 +306,104 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
-		0ED3ED3C2E792F950034626C /* Components */ = {
+		841A168E2E8B966C0007F28C /* EventsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E3B2E9D4412005F0E4C /* Loaders */,
-				847E128C2E98EECC0087BD88 /* Headers */,
-				847E123B2E9650590087BD88 /* Cards */,
-				847E123C2E96505F0087BD88 /* Buttons */,
-				84A71E002E9C8FC5005F0E4C /* Rows */,
-				84A71E012E9C8FC9005F0E4C /* Sections */,
-				847E123E2E96507E0087BD88 /* Banners */,
+				849403C72EA0F01700FC96CD /* View */,
+				849403CC2EA1090D00FC96CD /* Components */,
 			);
-			path = Components;
+			path = EventsFeed;
 			sourceTree = "<group>";
 		};
-		841A168E2E8B966C0007F28C /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				0ED3ED322E7928A00034626C /* EventsFeedView.swift */,
-			);
-			path = Events;
-			sourceTree = "<group>";
-		};
-		84497E3F2E937C4800DDBB09 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				84497E402E937C6900DDBB09 /* ErrorService.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
-		84497E442E93A07500DDBB09 /* Spotify */ = {
-			isa = PBXGroup;
-			children = (
-				8466420B2E8F8D760092F691 /* SpotifyServiceClient.swift */,
-				84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */,
-				84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */,
-			);
-			path = Spotify;
-			sourceTree = "<group>";
-		};
-		84497E4D2E93BC4000DDBB09 /* Apple */ = {
+		84497E442E93A07500DDBB09 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
 				847E126E2E97A85A0087BD88 /* AppleMusicServiceClient.swift */,
-				847E128F2E9905C50087BD88 /* AppleMusicWebAuthHandler.swift */,
-				847E12722E97A85F0087BD88 /* AppleMusicTokenStorage.swift */,
+				8466420B2E8F8D760092F691 /* SpotifyServiceClient.swift */,
+				847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */,
 			);
-			path = Apple;
+			path = Clients;
 			sourceTree = "<group>";
 		};
-		847E11E72E95325C0087BD88 /* YouTube */ = {
+		84497E4D2E93BC4000DDBB09 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				847E11F02E9533040087BD88 /* YouTubeMusicServiceClient.swift */,
-				847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */,
+				847E12722E97A85F0087BD88 /* AppleMusicTokenStorage.swift */,
+				84497E5E2E94E03100DDBB09 /* SpotifyTokenStorage.swift */,
 				847E11EC2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift */,
 			);
-			path = YouTube;
+			path = Storage;
 			sourceTree = "<group>";
 		};
-		847E12052E9561730087BD88 /* MusicService */ = {
+		847E11E72E95325C0087BD88 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				847E12072E9561900087BD88 /* Base */,
-				84497E442E93A07500DDBB09 /* Spotify */,
-				847E11E72E95325C0087BD88 /* YouTube */,
-				84497E4D2E93BC4000DDBB09 /* Apple */,
+				847E128F2E9905C50087BD88 /* AppleMusicWebAuthHandler.swift */,
+				84497E452E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift */,
+				847E11EE2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift */,
 			);
-			path = MusicService;
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		847E12052E9561730087BD88 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				84497E442E93A07500DDBB09 /* Clients */,
+				847E11E72E95325C0087BD88 /* Handlers */,
+				84497E4D2E93BC4000DDBB09 /* Storage */,
+				849403A72EA0DBF900FC96CD /* Constants */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		847E12062E9561800087BD88 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				84497E4E2E93BCBB00DDBB09 /* SessionManager.swift */,
+				84A71E0E2E9C9C4B005F0E4C /* AppStateManager.swift */,
+				849403F62EA205FF00FC96CD /* AnimationManager.swift */,
+				84497E4E2E93BCBB00DDBB09 /* UserManager.swift */,
 				84A71E202E9CA818005F0E4C /* AuthManager.swift */,
 				84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */,
-				84A71E092E9C970A005F0E4C /* EventsFeedManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		847E12072E9561900087BD88 /* Base */ = {
+		847E12072E9561900087BD88 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				847E12642E9792680087BD88 /* MusicServiceClient.swift */,
-				847E12662E9792B90087BD88 /* WebAuthHandler.swift */,
-				847E12682E9792D20087BD88 /* TokenStorage.swift */,
+				847E12642E9792680087BD88 /* BaseMusicServiceClient.swift */,
+				847E12662E9792B90087BD88 /* BaseWebAuthHandler.swift */,
+				847E12682E9792D20087BD88 /* BaseTokenStorage.swift */,
 				847E12622E9792020087BD88 /* MusicServiceProtocols.swift */,
 			);
-			path = Base;
+			path = Music;
 			sourceTree = "<group>";
 		};
-		847E12172E956E030087BD88 /* App */ = {
+		847E12172E956E030087BD88 /* 📱 App */ = {
 			isa = PBXGroup;
 			children = (
 				0ED3ED0B2E7805090034626C /* EventsFeedApp.swift */,
 				0ED3ED302E7925050034626C /* AppDelegate.swift */,
-				84A71E0E2E9C9C4B005F0E4C /* AppStateManager.swift */,
-				0ED3ED162E7806150034626C /* DIContainer */,
+				849403EC2EA10D2800FC96CD /* 🔧 DI */,
 			);
-			path = App;
+			path = "📱 App";
 			sourceTree = "<group>";
 		};
 		847E12182E956E4E0087BD88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0ED3ED1B2E7808060034626C /* Info.plist */,
-				0ED3ED092E7805090034626C /* Assets.xcassets */,
-				841A16982E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf */,
+				849403D02EA10B0F00FC96CD /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		847E12192E956F120087BD88 /* MusicServise */ = {
+		847E121C2E956F9C0087BD88 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				84497E502E93BCE200DDBB09 /* MusicService.swift */,
-				847E121A2E956F640087BD88 /* MusicServiceType.swift */,
-				84A71E402E9D4770005F0E4C /* ServiceConnectionState.swift */,
-			);
-			path = MusicServise;
-			sourceTree = "<group>";
-		};
-		847E121C2E956F9C0087BD88 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				84A71E272E9CBF46005F0E4C /* Base */,
 				84A71E1B2E9CA45E005F0E4C /* Apple */,
 				847E12832E98D25C0087BD88 /* Google */,
 			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		847E12232E9573AC0087BD88 /* Concert */ = {
-			isa = PBXGroup;
-			children = (
-				847E12212E9573AC0087BD88 /* Concert.swift */,
-			);
-			path = Concert;
-			sourceTree = "<group>";
-		};
-		847E12262E95742D0087BD88 /* Assemblies */ = {
-			isa = PBXGroup;
-			children = (
-				847E122B2E9574480087BD88 /* CoreAssembly.swift */,
-				847E12272E9574460087BD88 /* MusicServicesAssembly.swift */,
-				847E12292E9574470087BD88 /* AuthenticationAssembly.swift */,
-				847E122F2E9574CD0087BD88 /* ViewModelsAssembly.swift */,
-				847E122D2E9574AA0087BD88 /* ManagersAssembly.swift */,
-			);
-			path = Assemblies;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		847E123A2E964FDC0087BD88 /* Modifiers */ = {
@@ -493,20 +414,9 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		847E123B2E9650590087BD88 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				841A169A2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift */,
-				8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */,
-			);
-			path = Cards;
-			sourceTree = "<group>";
-		};
 		847E123C2E96505F0087BD88 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E192E9CA402005F0E4C /* AuthButtonView.swift */,
-				0ED3ED3D2E792FD60034626C /* FilterButton.swift */,
 				84A71E172E9C9FB0005F0E4C /* SignOutButton.swift */,
 			);
 			path = Buttons;
@@ -523,56 +433,26 @@
 		847E12432E9652F70087BD88 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				0ED3ED342E7928BB0034626C /* ProfileView.swift */,
+				849403C32EA0F01400FC96CD /* View */,
+				847E128C2E98EECC0087BD88 /* Headers */,
+				84A71E002E9C8FC5005F0E4C /* Rows */,
+				847E124E2E9653230087BD88 /* UserInfoCardView.swift */,
+				847E124C2E9653220087BD88 /* ConnectedServicesView.swift */,
+				847E123C2E96505F0087BD88 /* Buttons */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		847E12502E965BFC0087BD88 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				84A71E0B2E9C9748005F0E4C /* EventsFeed */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		847E12612E9790770087BD88 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				847E121C2E956F9C0087BD88 /* Authentication */,
-				847E12052E9561730087BD88 /* MusicService */,
+				847E121C2E956F9C0087BD88 /* Auth */,
 				0ED3ED192E78061F0034626C /* Content */,
-				84497E3F2E937C4800DDBB09 /* Error */,
-				84A71E322E9CE466005F0E4C /* Models */,
+				847E12052E9561730087BD88 /* Music */,
+				84497E402E937C6900DDBB09 /* ErrorService.swift */,
+				849404062EA23C4200FC96CD /* NotificationService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		847E12742E97A9600087BD88 /* Spotify */ = {
-			isa = PBXGroup;
-			children = (
-				847E12772E97A9AE0087BD88 /* SpotifyTrack.swift */,
-				84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */,
-			);
-			path = Spotify;
-			sourceTree = "<group>";
-		};
-		847E12752E97A9670087BD88 /* YouTubeMusic */ = {
-			isa = PBXGroup;
-			children = (
-				847E12792E97A9E70087BD88 /* YouTubeMusic.swift */,
-				847E11E82E95328E0087BD88 /* YouTubeMusicConstants.swift */,
-			);
-			path = YouTubeMusic;
-			sourceTree = "<group>";
-		};
-		847E12762E97A9690087BD88 /* AppleMusic */ = {
-			isa = PBXGroup;
-			children = (
-				847E127B2E97A9EC0087BD88 /* AppleMusic.swift */,
-				8466420D2E8F8DA50092F691 /* AppleMusicConstants.swift */,
-			);
-			path = AppleMusic;
 			sourceTree = "<group>";
 		};
 		847E12832E98D25C0087BD88 /* Google */ = {
@@ -583,19 +463,11 @@
 			path = Google;
 			sourceTree = "<group>";
 		};
-		847E12862E98DF2E0087BD88 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				0ED3ED242E7813920034626C /* RootView.swift */,
-				0ED3ED262E7813CA0034626C /* LoginView.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		847E12872E98EA3F0087BD88 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				847E12382E964FCC0087BD88 /* ConcertSection.swift */,
+				849404082EA5E3DE00FC96CD /* AuthProvider.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -604,26 +476,243 @@
 			isa = PBXGroup;
 			children = (
 				847E12442E9653170087BD88 /* ProfileHeaderView.swift */,
-				841A16962E8BC9570007F28C /* EventsFeedHeaderView.swift */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		84A71DFD2E9C8D86005F0E4C /* Screens */ = {
+		849403962EA0C87D00FC96CD /* 🏗️ Core */ = {
+			isa = PBXGroup;
+			children = (
+				849403FA2EA20DA100FC96CD /* Base */,
+				847E12062E9561800087BD88 /* Managers */,
+				849403A12EA0D32700FC96CD /* Models */,
+				849403F52EA1FD5300FC96CD /* ViewModels */,
+				847E12612E9790770087BD88 /* Services */,
+				0ED3ED152E7806130034626C /* Utilities */,
+			);
+			path = "🏗️ Core";
+			sourceTree = "<group>";
+		};
+		849403972EA0C9BB00FC96CD /* 🎨 Views */ = {
+			isa = PBXGroup;
+			children = (
+				849403FC2EA20FCE00FC96CD /* Onboarding */,
+				849403BC2EA0EC9400FC96CD /* Auth */,
+				849403FB2EA20F0200FC96CD /* MainBoard */,
+				849403CD2EA109DF00FC96CD /* Common */,
+			);
+			path = "🎨 Views";
+			sourceTree = "<group>";
+		};
+		849403A12EA0D32700FC96CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84A71E332E9CE4E1005F0E4C /* Auth */,
+				84A71E522E9E1846005F0E4C /* Error */,
+				84A71E342E9CE507005F0E4C /* Music */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		849403A72EA0DBF900FC96CD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8466420D2E8F8DA50092F691 /* AppleMusicConstants.swift */,
+				84DFC9D22E94E0CC00FB1C34 /* SpotifyConstants.swift */,
+				847E11E82E95328E0087BD88 /* YouTubeMusicConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		849403AA2EA0E50100FC96CD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				849403B32EA0E85C00FC96CD /* BaseViewModel.swift */,
+				849403AF2EA0E56200FC96CD /* BaseViewWithViewModel.swift */,
+				849403AD2EA0E53C00FC96CD /* View+Extensions.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		849403BC2EA0EC9400FC96CD /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED262E7813CA0034626C /* AuthView.swift */,
+				849403CB2EA108CE00FC96CD /* Components */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		849403C32EA0F01400FC96CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED342E7928BB0034626C /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		849403C52EA0F01500FC96CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84A71E072E9C94DB005F0E4C /* ExploreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		849403C72EA0F01700FC96CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED322E7928A00034626C /* EventsFeedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		849403C82EA0F01700FC96CD /* EventsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				84A71E092E9C970A005F0E4C /* EventsFeedManager.swift */,
+				0E6B55EC2E7953CF004F2446 /* EventsFeedContentViewModel.swift */,
+				84A71E0C2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift */,
+			);
+			path = EventsFeed;
+			sourceTree = "<group>";
+		};
+		849403CB2EA108CE00FC96CD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				84A71E192E9CA402005F0E4C /* AuthButtonView.swift */,
+				84A71E4E2E9E1337005F0E4C /* AuthLoadingOverlay.swift */,
+				84A71E502E9E135F005F0E4C /* AuthTransitionView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		849403CC2EA1090D00FC96CD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				841A16962E8BC9570007F28C /* EventsFeedHeaderView.swift */,
+				841A169A2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift */,
+				8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		849403CD2EA109DF00FC96CD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				847E123E2E96507E0087BD88 /* Banners */,
+				84A71DFE2E9C8F7C005F0E4C /* Utilities */,
+				847E123A2E964FDC0087BD88 /* Modifiers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		849403CE2EA10AD200FC96CD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				849403CF2EA10B0300FC96CD /* Components */,
+				847E12182E956E4E0087BD88 /* Resources */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		849403CF2EA10B0300FC96CD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0ED3ED092E7805090034626C /* Assets.xcassets */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		849403D02EA10B0F00FC96CD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				841A16982E8BCAE50007F28C /* DancingScript-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		849403EA2EA10D2800FC96CD /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				849403E62EA10D2800FC96CD /* CoreAssembly.swift */,
+				849403E52EA10D2800FC96CD /* AuthenticationAssembly.swift */,
+				849403E82EA10D2800FC96CD /* MusicServicesAssembly.swift */,
+				849403E72EA10D2800FC96CD /* ManagersAssembly.swift */,
+				849403E92EA10D2800FC96CD /* ViewModelsAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		849403EC2EA10D2800FC96CD /* 🔧 DI */ = {
+			isa = PBXGroup;
+			children = (
+				849403EB2EA10D2800FC96CD /* DIContainer.swift */,
+				849403EA2EA10D2800FC96CD /* Assemblies */,
+			);
+			path = "🔧 DI";
+			sourceTree = "<group>";
+		};
+		849403F52EA1FD5300FC96CD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				849403B92EA0EBAA00FC96CD /* MainTabViewModel.swift */,
+				849403B72EA0EA2100FC96CD /* AuthViewModel.swift */,
+				849403C92EA0F05C00FC96CD /* ProfileViewModel.swift */,
+				849403C82EA0F01700FC96CD /* EventsFeed */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		849403FA2EA20DA100FC96CD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				84A71E272E9CBF46005F0E4C /* Auth */,
+				847E12072E9561900087BD88 /* Music */,
+				849403AA2EA0E50100FC96CD /* UI */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		849403FB2EA20F0200FC96CD /* MainBoard */ = {
 			isa = PBXGroup;
 			children = (
 				0ED3ED282E7813E60034626C /* MainTabView.swift */,
-				841A168E2E8B966C0007F28C /* Events */,
+				849403FD2EA2105700FC96CD /* Tabs */,
+			);
+			path = MainBoard;
+			sourceTree = "<group>";
+		};
+		849403FC2EA20FCE00FC96CD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				849403F32EA10D5400FC96CD /* RootView.swift */,
+				849403FE2EA2189400FC96CD /* Launch */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		849403FD2EA2105700FC96CD /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				841A168E2E8B966C0007F28C /* EventsFeed */,
 				84A71E052E9C94BC005F0E4C /* Explore */,
 				847E12432E9652F70087BD88 /* Profile */,
 			);
-			path = Screens;
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		849403FE2EA2189400FC96CD /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				849403FF2EA218A800FC96CD /* AnimatedSplashView.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		84A71DFE2E9C8F7C005F0E4C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E022E9C9051005F0E4C /* ViewHelpers */,
 				847E12842E98D6C50087BD88 /* AdaptiveLayout.swift */,
 				847E12812E97CF840087BD88 /* Extensions.swift */,
 			);
@@ -633,46 +722,20 @@
 		84A71E002E9C8FC5005F0E4C /* Rows */ = {
 			isa = PBXGroup;
 			children = (
-				847E124A2E9653210087BD88 /* MusicServiceRowView.swift */,
+				847E12482E96531F0087BD88 /* AppInfoView.swift */,
 				847E123F2E9650BC0087BD88 /* InfoRow.swift */,
+				847E124A2E9653210087BD88 /* MusicServiceRowView.swift */,
 			);
 			path = Rows;
-			sourceTree = "<group>";
-		};
-		84A71E012E9C8FC9005F0E4C /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				847E124E2E9653230087BD88 /* UserInfoCardView.swift */,
-				847E124C2E9653220087BD88 /* ConnectedServicesView.swift */,
-				847E12482E96531F0087BD88 /* AppInfoView.swift */,
-			);
-			path = Sections;
-			sourceTree = "<group>";
-		};
-		84A71E022E9C9051005F0E4C /* ViewHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				84A71E032E9C9063005F0E4C /* ScrollDirection.swift */,
-			);
-			path = ViewHelpers;
 			sourceTree = "<group>";
 		};
 		84A71E052E9C94BC005F0E4C /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E072E9C94DB005F0E4C /* ExploreView.swift */,
+				849403C52EA0F01500FC96CD /* View */,
+				0ED3ED3D2E792FD60034626C /* FilterButton.swift */,
 			);
 			path = Explore;
-			sourceTree = "<group>";
-		};
-		84A71E0B2E9C9748005F0E4C /* EventsFeed */ = {
-			isa = PBXGroup;
-			children = (
-				0E6B55EC2E7953CF004F2446 /* EventsFeedContentViewModel.swift */,
-				84A71E0C2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift */,
-				84A71E452E9E1218005F0E4C /* LoadingAnimationManager.swift */,
-			);
-			path = EventsFeed;
 			sourceTree = "<group>";
 		};
 		84A71E1B2E9CA45E005F0E4C /* Apple */ = {
@@ -683,65 +746,31 @@
 			path = Apple;
 			sourceTree = "<group>";
 		};
-		84A71E272E9CBF46005F0E4C /* Base */ = {
+		84A71E272E9CBF46005F0E4C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				84A71E1E2E9CA7CF005F0E4C /* AuthServiceProtocol.swift */,
 				84A71E282E9CBF72005F0E4C /* BaseAuthService.swift */,
 			);
-			path = Base;
+			path = Auth;
 			sourceTree = "<group>";
 		};
-		84A71E322E9CE466005F0E4C /* Models */ = {
+		84A71E332E9CE4E1005F0E4C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				84A71E342E9CE507005F0E4C /* Music */,
-				84A71E332E9CE4E1005F0E4C /* Authentication */,
-				847E12232E9573AC0087BD88 /* Concert */,
-				84A71E522E9E1846005F0E4C /* Error */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		84A71E332E9CE4E1005F0E4C /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				84C1C4512E8C0A9600A39C8D /* User.swift */,
 				84A71E2A2E9CD094005F0E4C /* AuthSignInOptions.swift */,
+				847E12212E9573AC0087BD88 /* Concert.swift */,
+				84C1C4512E8C0A9600A39C8D /* User.swift */,
 			);
-			path = Authentication;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		84A71E342E9CE507005F0E4C /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				847E12192E956F120087BD88 /* MusicServise */,
-				847E12762E97A9690087BD88 /* AppleMusic */,
-				847E12742E97A9600087BD88 /* Spotify */,
-				847E12752E97A9670087BD88 /* YouTubeMusic */,
+				849404042EA2397000FC96CD /* MusicServiceType.swift */,
 			);
 			path = Music;
-			sourceTree = "<group>";
-		};
-		84A71E3B2E9D4412005F0E4C /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				84C1C44F2E8C091F00A39C8D /* LoadingView.swift */,
-				84A71E4D2E9E127A005F0E4C /* Details */,
-			);
-			path = Loaders;
-			sourceTree = "<group>";
-		};
-		84A71E4D2E9E127A005F0E4C /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				84A71E472E9E123E005F0E4C /* AnimatedLogoView.swift */,
-				84A71E492E9E1249005F0E4C /* ParticleSystemView.swift */,
-				84A71E4B2E9E125C005F0E4C /* PulsingCirclesView.swift */,
-				84A71E4E2E9E1337005F0E4C /* AuthLoadingOverlay.swift */,
-				84A71E502E9E135F005F0E4C /* AuthTransitionView.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		84A71E522E9E1846005F0E4C /* Error */ = {
@@ -909,27 +938,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				847E124F2E9653230087BD88 /* UserInfoCardView.swift in Sources */,
-				0ED3ED252E7813920034626C /* RootView.swift in Sources */,
+				849404052EA2397000FC96CD /* MusicServiceType.swift in Sources */,
 				847E12822E97CF840087BD88 /* Extensions.swift in Sources */,
 				8466420C2E8F8D760092F691 /* SpotifyServiceClient.swift in Sources */,
-				847E12692E9792D20087BD88 /* TokenStorage.swift in Sources */,
+				847E12692E9792D20087BD88 /* BaseTokenStorage.swift in Sources */,
 				8440C67D2E8543ED00EA6A9D /* ConcertCardView.swift in Sources */,
 				0ED3ED1F2E7809A70034626C /* GoogleAuthService.swift in Sources */,
 				847E12402E9650BC0087BD88 /* InfoRow.swift in Sources */,
-				84A71E4C2E9E125C005F0E4C /* PulsingCirclesView.swift in Sources */,
 				847E12732E97A85F0087BD88 /* AppleMusicTokenStorage.swift in Sources */,
-				847E12782E97A9AE0087BD88 /* SpotifyTrack.swift in Sources */,
 				84A71E2B2E9CD094005F0E4C /* AuthSignInOptions.swift in Sources */,
 				847E121E2E95724A0087BD88 /* AuthError.swift in Sources */,
-				0ED3ED272E7813CA0034626C /* LoginView.swift in Sources */,
+				0ED3ED272E7813CA0034626C /* AuthView.swift in Sources */,
 				84A71E212E9CA818005F0E4C /* AuthManager.swift in Sources */,
 				0ED3ED352E7928BB0034626C /* ProfileView.swift in Sources */,
-				84A71E4A2E9E1249005F0E4C /* ParticleSystemView.swift in Sources */,
+				849403B42EA0E85C00FC96CD /* BaseViewModel.swift in Sources */,
 				84A71E4F2E9E1337005F0E4C /* AuthLoadingOverlay.swift in Sources */,
 				0E6B55F12E795647004F2446 /* MockData.swift in Sources */,
 				84A71E0A2E9C970A005F0E4C /* EventsFeedManager.swift in Sources */,
-				847E122E2E9574AA0087BD88 /* ManagersAssembly.swift in Sources */,
-				84A71E462E9E1218005F0E4C /* LoadingAnimationManager.swift in Sources */,
+				849404092EA5E3DE00FC96CD /* AuthProvider.swift in Sources */,
 				847E12202E95724B0087BD88 /* MusicServiceAuthError.swift in Sources */,
 				84A71E182E9C9FB0005F0E4C /* SignOutButton.swift in Sources */,
 				847E11EF2E9532DA0087BD88 /* YouTubeMusicWebAuthHandler.swift in Sources */,
@@ -937,62 +963,64 @@
 				847E12632E9792020087BD88 /* MusicServiceProtocols.swift in Sources */,
 				0ED3ED3E2E792FD60034626C /* FilterButton.swift in Sources */,
 				847E12252E9573AC0087BD88 /* Concert.swift in Sources */,
+				849403B02EA0E56200FC96CD /* BaseViewWithViewModel.swift in Sources */,
 				0ED3ED312E7925050034626C /* AppDelegate.swift in Sources */,
 				841A169B2E8BD00F0007F28C /* ConcertCardPlaceholderView.swift in Sources */,
 				0E6B55EF2E79542A004F2446 /* ConcertServiceProtocol.swift in Sources */,
+				849404072EA23C4200FC96CD /* NotificationService.swift in Sources */,
 				841A16972E8BC9570007F28C /* EventsFeedHeaderView.swift in Sources */,
-				847E12282E9574460087BD88 /* MusicServicesAssembly.swift in Sources */,
 				847E11F12E9533040087BD88 /* YouTubeMusicServiceClient.swift in Sources */,
-				847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */,
-				0ED3ED122E7805370034626C /* DIContainer.swift in Sources */,
-				847E12672E9792B90087BD88 /* WebAuthHandler.swift in Sources */,
-				847E122A2E9574470087BD88 /* AuthenticationAssembly.swift in Sources */,
+				847E12652E9792680087BD88 /* BaseMusicServiceClient.swift in Sources */,
+				849403F42EA10D5400FC96CD /* RootView.swift in Sources */,
+				847E12672E9792B90087BD88 /* BaseWebAuthHandler.swift in Sources */,
 				847E124B2E9653210087BD88 /* MusicServiceRowView.swift in Sources */,
-				84497E4F2E93BCBB00DDBB09 /* SessionManager.swift in Sources */,
+				84497E4F2E93BCBB00DDBB09 /* UserManager.swift in Sources */,
 				0ED3ED0E2E7805090034626C /* EventsFeedApp.swift in Sources */,
 				84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */,
 				84A71E1D2E9CA480005F0E4C /* AppleAuthService.swift in Sources */,
-				847E127C2E97A9EC0087BD88 /* AppleMusic.swift in Sources */,
+				849403ED2EA10D2800FC96CD /* ViewModelsAssembly.swift in Sources */,
+				849403EE2EA10D2800FC96CD /* DIContainer.swift in Sources */,
+				849403EF2EA10D2800FC96CD /* ManagersAssembly.swift in Sources */,
+				849403F02EA10D2800FC96CD /* MusicServicesAssembly.swift in Sources */,
+				849403F12EA10D2800FC96CD /* CoreAssembly.swift in Sources */,
+				849403F22EA10D2800FC96CD /* AuthenticationAssembly.swift in Sources */,
 				84497E5F2E94E03100DDBB09 /* SpotifyTokenStorage.swift in Sources */,
 				84497E412E937C6900DDBB09 /* ErrorService.swift in Sources */,
 				84A71E242E9CAB95005F0E4C /* KeychainHelper.swift in Sources */,
 				0ED3ED332E7928A00034626C /* EventsFeedView.swift in Sources */,
 				84A71E0D2E9C9814005F0E4C /* EventsFeedBehaviorViewModel.swift in Sources */,
 				0E6B55ED2E7953CF004F2446 /* EventsFeedContentViewModel.swift in Sources */,
+				84F279182EA0A51A007938EF /* LogoAnimationState.swift in Sources */,
 				847E12902E9905C50087BD88 /* AppleMusicWebAuthHandler.swift in Sources */,
-				84A71E042E9C9063005F0E4C /* ScrollDirection.swift in Sources */,
 				847E11E92E95328E0087BD88 /* YouTubeMusicConstants.swift in Sources */,
+				849403AE2EA0E53C00FC96CD /* View+Extensions.swift in Sources */,
+				849403BA2EA0EBAA00FC96CD /* MainTabViewModel.swift in Sources */,
 				84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */,
+				849403CA2EA0F05C00FC96CD /* ProfileViewModel.swift in Sources */,
+				849403F72EA205FF00FC96CD /* AnimationManager.swift in Sources */,
 				84A71E082E9C94DB005F0E4C /* ExploreView.swift in Sources */,
 				847E12142E9562C30087BD88 /* Notifications.swift in Sources */,
 				84A71E1F2E9CA7CF005F0E4C /* AuthServiceProtocol.swift in Sources */,
 				847E11ED2E9532BB0087BD88 /* YouTubeMusicTokenStorage.swift in Sources */,
-				847E122C2E9574480087BD88 /* CoreAssembly.swift in Sources */,
-				84497E512E93BCE200DDBB09 /* MusicService.swift in Sources */,
-				84A71E412E9D4770005F0E4C /* ServiceConnectionState.swift in Sources */,
 				847E126F2E97A85A0087BD88 /* AppleMusicServiceClient.swift in Sources */,
 				84497E552E9415A800DDBB09 /* AppError.swift in Sources */,
 				847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */,
 				84C1C4522E8C0A9600A39C8D /* User.swift in Sources */,
+				849404002EA218A800FC96CD /* AnimatedSplashView.swift in Sources */,
 				847E12392E964FCC0087BD88 /* ConcertSection.swift in Sources */,
 				847E12452E9653170087BD88 /* ProfileHeaderView.swift in Sources */,
 				847E12492E96531F0087BD88 /* AppInfoView.swift in Sources */,
 				847E12852E98D6C50087BD88 /* AdaptiveLayout.swift in Sources */,
 				0ED3ED292E7813E60034626C /* MainTabView.swift in Sources */,
 				841A169D2E8BDEF80007F28C /* ShimmerModifier.swift in Sources */,
-				84A71E482E9E123E005F0E4C /* AnimatedLogoView.swift in Sources */,
 				84DFC9D32E94E0CC00FB1C34 /* SpotifyConstants.swift in Sources */,
-				84C1C4502E8C091F00A39C8D /* LoadingView.swift in Sources */,
 				84A71E512E9E135F005F0E4C /* AuthTransitionView.swift in Sources */,
 				84A71E1A2E9CA402005F0E4C /* AuthButtonView.swift in Sources */,
-				847E12302E9574CD0087BD88 /* ViewModelsAssembly.swift in Sources */,
 				84497E462E93A0A400DDBB09 /* SpotifyWebAuthHandler.swift in Sources */,
 				8466420E2E8F8DA50092F691 /* AppleMusicConstants.swift in Sources */,
+				849403B82EA0EA2100FC96CD /* AuthViewModel.swift in Sources */,
 				84A71E292E9CBF72005F0E4C /* BaseAuthService.swift in Sources */,
-				847E127A2E97A9E70087BD88 /* YouTubeMusic.swift in Sources */,
 				847E124D2E9653220087BD88 /* ConnectedServicesView.swift in Sources */,
-				847E12162E9562CA0087BD88 /* MusicServiceNotificationKeys.swift in Sources */,
-				847E121B2E956F640087BD88 /* MusicServiceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,7 +1187,7 @@
 				DEVELOPMENT_TEAM = J5U6N2764N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EventsFeed/Resources/Info.plist;
+				INFOPLIST_FILE = EventsFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1188,7 +1216,7 @@
 				DEVELOPMENT_TEAM = J5U6N2764N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = EventsFeed/Resources/Info.plist;
+				INFOPLIST_FILE = EventsFeed/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
