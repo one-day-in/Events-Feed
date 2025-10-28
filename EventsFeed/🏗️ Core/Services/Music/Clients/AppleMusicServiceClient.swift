@@ -1,75 +1,45 @@
 import Foundation
-import MusicKit
 import MediaPlayer
 
-@MainActor
-final class AppleMusicServiceClient: BaseMusicServiceClient<
-    AppleMusicConstants,
-    AppleMusicAuthHandler,
-    AppleMusicTokenStorage
-> {
-    private var hasExplicitlyConnected: Bool {
-        get { UserDefaults.standard.bool(forKey: "AppleMusicExplicitlyConnected") }
-        set { UserDefaults.standard.set(newValue, forKey: "AppleMusicExplicitlyConnected") }
-    }
-
-    convenience init(errorService: ErrorService = .shared) {
-        let authHandler = AppleMusicAuthHandler()
-        let tokenStorage = AppleMusicTokenStorage()
-
-        self.init(
-            webAuthHandler: authHandler,
-            tokenStorage: tokenStorage,
-            errorService: errorService,
-            serviceType: .appleMusic
+final class AppleMusicServiceClient: BaseMusicServiceClient {
+    
+    init(tokenStorage: TokenStorage = SecureTokenStorage(service: "AppleMusicService")) {
+        super.init(
+            serviceType: .appleMusic,
+            webAuthHandler: nil,
+            tokenStorage: tokenStorage
         )
-
-        updateConnectionState()
     }
-
-    override func authenticate() {
-        isLoading = true
-        errorMessage = nil
-
-        Task { @MainActor in
-            await performNativeAuthentication()
+    
+    // MARK: - Authentication
+    override func authenticate() async throws {
+        let status = await MPMediaLibrary.requestAuthorization()
+        
+        guard status == .authorized else {
+            throw MusicServiceAuthError.accessDenied
         }
+        
+        await updateState(connected: true)
     }
-
-    @MainActor
-    private func performNativeAuthentication() async {
-        do {
-            let status = await MusicAuthorization.request()
-            switch status {
-            case .authorized:
-                let subscription = try? await MusicSubscription.current
-                let hasSubscription = subscription?.canPlayCatalogContent ?? false
-
-                hasExplicitlyConnected = true
-                handleAuthSuccess(accessToken: "apple_music_native_access")
-
-                if !hasSubscription {
-                    errorMessage = "⚠️ Підписка Apple Music неактивна"
-                }
-
-            case .denied:
-                throw MusicServiceAuthError.accessDenied
-            case .restricted:
-                throw MusicServiceAuthError.restricted
-            default:
-                throw MusicServiceAuthError.serviceError("Невідомий статус авторизації")
-            }
-        } catch {
-            handleError(error.localizedDescription)
+    
+    // MARK: - Session Restoration
+    override func restoreSession() async throws {
+        let status = MPMediaLibrary.authorizationStatus()
+        
+        guard status == .authorized else {
+            throw MusicServiceAuthError.accessDenied
         }
+        
+        await updateState(connected: true)
     }
-
+    
+    // MARK: - Auth Callback
+    override func handleAuthCallback(url: URL) async throws -> Bool {
+        return false
+    }
+    
+    // MARK: - Authentication Check
     override func isAuthenticated() -> Bool {
-        MusicAuthorization.currentStatus == .authorized && hasExplicitlyConnected
-    }
-
-    override func disconnect() {
-        hasExplicitlyConnected = false
-        super.disconnect()
+        return MPMediaLibrary.authorizationStatus() == .authorized
     }
 }

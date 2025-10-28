@@ -1,69 +1,55 @@
 import GoogleSignIn
 
+@MainActor
 final class GoogleAuthService: BaseAuthService {
-    private let signInInstance = GIDSignIn.sharedInstance
-    private let errorService: ErrorService
-    
-    init(errorService: ErrorService) {
-        self.errorService = errorService
-        super.init()
-        GIDSignIn.sharedInstance.configuration = GIDConfiguration(
-            clientID: "487751122186-an2bm47rbc80taujsrjgfqv3ta4rlumn.apps.googleusercontent.com"
-        )
-        self.updateUserState()
+    // MARK: - Initialization
+    init() {
+        super.init(provider: .google)
+        configureGoogleSignIn()
     }
     
-    override func signIn(with options: AuthSignInOptions?) async throws -> User {
-        setLoading(true)
-        defer { setLoading(false) }
-        
-        let rootViewController = options?.presentationContext as? UIViewController ?? UIApplication.shared.rootViewController
-        
-        guard let viewController = rootViewController else {
-            let error = AuthError.noRootViewController
-            errorService.report(error, context: "Google Sign-In")
-            throw error
+    private func configureGoogleSignIn() {
+        let config = GIDConfiguration(clientID: GoogleSignInConstants.clientID)
+        GIDSignIn.sharedInstance.configuration = config
+    }
+    
+    // MARK: - Sign In
+    override func signIn() async throws -> User {
+        guard let presentingVC = UIApplication.shared.rootViewController else {
+            throw AuthError.noRootViewController
         }
         
-        do {
-            let gidSignInResult = try await signInInstance.signIn(withPresenting: viewController)
-            let gidUser = gidSignInResult.user
-            let user = User(from: gidUser)
-            
-            updateUser(user, isLoggedIn: true)
-            return user
-        } catch {
-            let authError = error.toAuthError()
-            errorService.report(authError, context: "Google Sign-In")
-            throw authError
+        return try await performAuthOperation {
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: presentingVC)
+            return User(from: result.user)
         }
     }
     
+    // MARK: - Restore Session
+    override func restoreSession() async throws -> User? {
+        guard GIDSignIn.sharedInstance.hasPreviousSignIn() else {
+            return nil
+        }
+        
+        return try await performAuthOperation {
+            let googleUser = try await GIDSignIn.sharedInstance.restorePreviousSignIn()
+            return User(from: googleUser)
+        }
+    }
+    
+    // MARK: - Sign Out
     override func signOut() throws {
-        signInInstance.signOut()
-        updateUserState()
+        GIDSignIn.sharedInstance.signOut()
         try super.signOut()
     }
     
-    override func restoreSession() async {
-        setLoading(true)
-        defer { setLoading(false) }
-        
-        do {
-            _ = try await signInInstance.restorePreviousSignIn()
-            updateUserState()
-        } catch {
-            print("Failed to restore session: \(error)")
-        }
+    // MARK: - Get Access Token
+    override func getAccessToken() async throws -> String? {
+        return GIDSignIn.sharedInstance.currentUser?.accessToken.tokenString
     }
     
+    // MARK: - URL Handling
     override func handle(_ url: URL) -> Bool {
-        return signInInstance.handle(url)
-    }
-    
-    private func updateUserState() {
-        let gidUser = signInInstance.currentUser
-        let newUser = gidUser.map { User(from: $0) }
-        updateUser(newUser, isLoggedIn: gidUser != nil)
+        GIDSignIn.sharedInstance.handle(url)
     }
 }

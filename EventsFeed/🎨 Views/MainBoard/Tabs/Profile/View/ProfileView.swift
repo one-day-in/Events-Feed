@@ -2,17 +2,17 @@
 //import SwiftUI
 //
 //struct ProfileView: View {
-//    @StateObject var viewModel: ProfileViewModel
+//    @StateObject var viewModel: AppStateManager
 //    
 //    var body: some View {
 //        NavigationView {
 //            ScrollView {
 //                VStack(spacing: 20) {
 //                    // Заголовок профілю
-//                    ProfileHeaderView(user: viewModel.user)
+////                    ProfileHeaderView(user: viewModel.user)
 //                    
 //                    // Інформація про акаунт
-//                    UserInfoCardView(user: viewModel.user)
+////                    UserInfoCardView(user: viewModel.user)
 //                    
 //                    // Підключені сервіси
 //                    ConnectedServicesView(viewModel: viewModel)
@@ -42,7 +42,6 @@
 //
 //// MARK: - Preview
 //#Preview {
-//    ProfileView(
-//        viewModel: DIContainer.shared.resolve(ProfileViewModel.self)
-//    )
+//    ProfileView()
+//        .environmentObject(DIContainer.shared.resolve(AppStateManager.self))
 //}

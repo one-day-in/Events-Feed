@@ -40,12 +40,12 @@
 //        .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
 //    }
 //}
-//
-//#Preview {
-//    let sessionManager = DIContainer.shared.resolve(SessionManager.self)
-//    let viewModel = ProfileViewModel(sessionManager: sessionManager)
-//    
-//    return ConnectedServicesView(viewModel: viewModel)
-//        .padding()
-//        .background(Color(.systemGroupedBackground))
-//}
+////
+////#Preview {
+////    let sessionManager = DIContainer.shared.resolve(SessionManager.self)
+////    let viewModel = ProfileViewModel(sessionManager: sessionManager)
+////    
+////    return ConnectedServicesView(viewModel: viewModel)
+////        .padding()
+////        .background(Color(.systemGroupedBackground))
+////}

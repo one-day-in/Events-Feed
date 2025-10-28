@@ -30,3 +30,31 @@ struct ErrorBannerView: View {
         .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 3)
     }
 }
+
+extension AppError {
+    var icon: String {
+        switch self {
+        case .network:
+            return "wifi.exclamationmark"
+        case .auth:
+            return "person.crop.circle.badge.exclamationmark"
+        case .music:
+            return "speaker.slash"
+        case .unknown:
+            return "exclamationmark.triangle"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .network:
+            return .orange
+        case .auth:
+            return .red
+        case .music:
+            return .purple
+        case .unknown:
+            return .gray
+        }
+    }
+}

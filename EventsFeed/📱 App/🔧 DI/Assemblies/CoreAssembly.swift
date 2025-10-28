@@ -3,19 +3,20 @@ import Swinject
 
 final class CoreAssembly: Assembly {
     func assemble(container: Container) {
-        // MARK: - Core Services
-        container.register(ErrorService.self) { _ in
-            ErrorService.shared
+        container.register(CoreErrorService.self) { _ in
+            return CoreErrorService()
         }
         .inObjectScope(.container)
         
-        container.register(NotificationService.self) { _ in
-            NotificationService.shared
+        container.registerMainActor(UIErrorService.self) { resolver in
+            let coreErrorService = resolver.resolve(CoreErrorService.self)!
+            return UIErrorService(coreService: coreErrorService)
         }
         .inObjectScope(.container)
         
-        container.register(ConcertServiceProtocol.self) { _ in
-            ConcertService()
+        container.registerMainActor(LoadingService.self) { _ in
+            return LoadingService()
         }
+        .inObjectScope(.container)
     }
 }

@@ -2,25 +2,23 @@ import Foundation
 import Swinject
 
 final class DIContainer {
-    static let shared = DIContainer()
-    let container: Container
+    private let container: Container
     private let assembler: Assembler
     
-    private init() {
-        container = Container()
-        
+    init() {
+        self.container = Container()
         assembler = Assembler([
             CoreAssembly(),
-            AuthenticationAssembly(),
-            MusicServicesAssembly(),
+            ServicesAssembly(),
             ManagersAssembly(),
-            ViewModelsAssembly()
         ], container: container)
     }
-        
+    
+    // MARK: - Стандартне resolve (обов'язкове)
     func resolve<T>(_ type: T.Type) -> T {
         guard let dependency = container.resolve(T.self) else {
-            fatalError("Помилка резолву залежності для типу \(String(describing: T.self))")
+            assertionFailure("⚠️ Dependency not found for \(T.self)")
+            fatalError("❌ Missing dependency registration: \(T.self)")
         }
         return dependency
     }

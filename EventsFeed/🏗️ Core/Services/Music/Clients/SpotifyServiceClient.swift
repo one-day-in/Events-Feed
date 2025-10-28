@@ -1,17 +1,16 @@
 import Foundation
 
-@MainActor
-final class SpotifyServiceClient: BaseMusicServiceClient<
-    SpotifyConstants,
-    SpotifyWebAuthHandler,
-    SpotifyTokenStorage
-> {
-    convenience init(errorService: ErrorService = .shared) {
-        self.init(
-            webAuthHandler: SpotifyWebAuthHandler(),
-            tokenStorage: SpotifyTokenStorage(),
-            errorService: errorService,
-            serviceType: .spotify
+final class SpotifyServiceClient: BaseMusicServiceClient {
+    init(
+        tokenStorage: TokenStorage = SecureTokenStorage(service: "MusicService")
+    ) {
+        let constants = SpotifyConstants()
+        let handler = SpotifyWebAuthHandler(constants: constants)
+        super.init(
+            serviceType: .spotify,
+            webAuthHandler: handler,
+            tokenStorage: tokenStorage
         )
     }
 }
+
