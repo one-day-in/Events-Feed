@@ -2,259 +2,192 @@ import SwiftUI
 
 struct SplashView: View {
     @StateObject private var viewModel = SplashViewModel()
-    var onSkip: () -> Void
+    var onComplete: () -> Void
+    
+    // Виносимо розміри екрана в змінні
+    private var screenWidth: CGFloat { UIScreen.main.bounds.width }
+    private var screenHeight: CGFloat { UIScreen.main.bounds.height }
+    
+    // Радіус для кругового руху
+    private var circleRadius: CGFloat { min(screenWidth, screenHeight) * 0.8 }
+    
+    // Кути для кругового руху
+    @State private var lightAngles: [Double] = []
     
     var body: some View {
         ZStack {
-            // Фон
-            backgroundView
+            Color.darkNavy.ignoresSafeArea()
             
-            // Контейнер лавової лампи з вмістом всередині
-            lavaLampContainerWithContent
-            
-            // Лавові бульбашки
-            lavaBubblesView
-        }
-        .onAppear {
-            viewModel.startAnimations()
-        }
-        .onTapGesture {
-            onSkip()
+            lightSpotsBackground
+            spotlights
+            centralContent
+            lightSpotsForeground
         }
         .contentShape(Rectangle())
+        .onTapGesture {
+            viewModel.skipAnimations()
+        }
+        .onAppear {
+            // Генеруємо кути перед початком анімації
+            if lightAngles.isEmpty {
+                lightAngles = viewModel.generateLightAngles()
+            }
+            viewModel.startAnimations()
+        }
+        .onChange(of: viewModel.animationState) {
+            if viewModel.animationState == .completed {
+                onComplete()
+            }
+        }
     }
     
-    // MARK: - Компоненти
-    
-    private var backgroundView: some View {
-        Color(red: 0.05, green: 0.03, blue: 0.08)
-            .ignoresSafeArea()
+    // MARK: - Центральний контент
+    private var centralContent: some View {
+        VStack(spacing: 30) {
+            VStack(spacing: 8) {
+                Text("Concert")
+                    .font(.system(size: 42, weight: .black, design: .rounded))
+                    .foregroundStyle(titleGradient)
+                    .scaleEffect(0.5 + 0.5 * viewModel.animationProgress)
+                    .opacity(viewModel.animationProgress)
+                    .shadow(color: .warmOrange.opacity(0.5), radius: 10)
+                
+                Text("Box")
+                    .font(.system(size: 34, weight: .semibold, design: .rounded))
+                    .foregroundStyle(titleGradient)
+                    .scaleEffect(0.7 + 0.3 * viewModel.animationProgress)
+                    .opacity(viewModel.animationProgress * 0.8)
+            }
+            
+            Text("Знайди свій ідеальний концерт")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(.white.opacity(0.7))
+                .opacity(viewModel.animationProgress * 0.6)
+                .scaleEffect(0.9 + 0.1 * viewModel.animationProgress)
+        }
+        .padding(.horizontal, 40)
     }
-    
-    private var lavaLampContainerWithContent: some View {
-        let containerWidth = min(UIScreen.main.bounds.width * 0.8, 320)
-        let containerHeight = min(UIScreen.main.bounds.height * 0.7, 500)
         
-        return ZStack {
-            // Основа колонки
-            RoundedRectangle(cornerRadius: 24)
+    private var titleGradient: LinearGradient {
+        LinearGradient(
+            colors: [.warmOrange, .pinkPurple],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+    }
+    
+    // MARK: - Світлові плями на задньому плані
+    private var lightSpotsBackground: some View {
+        ZStack {
+            Circle()
                 .fill(
-                    LinearGradient(
-                        colors: [
-                            Color(red: 0.15, green: 0.1, blue: 0.25),
-                            Color(red: 0.08, green: 0.05, blue: 0.15),
-                            Color(red: 0.12, green: 0.08, blue: 0.2)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+                    RadialGradient(
+                        colors: [.warmOrange.opacity(0.3), .clear],
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 150
                     )
                 )
-                .frame(width: containerWidth, height: containerHeight)
+                .frame(width: 300, height: 300)
+                .offset(x: -screenWidth * 0.3, y: -screenHeight * 0.2)
+                .blur(radius: 40)
+                .opacity(viewModel.lightAnimationProgress)
             
-            // Динамік
+            Circle()
+                .fill(
+                    RadialGradient(
+                        colors: [.pinkPurple.opacity(0.25), .clear],
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 120
+                    )
+                )
+                .frame(width: 250, height: 250)
+                .offset(x: screenWidth * 0.35, y: screenHeight * 0.25)
+                .blur(radius: 35)
+                .opacity(viewModel.lightAnimationProgress * 0.8)
+        }
+    }
+    
+    // MARK: - Прожектори
+    private var spotlights: some View {
+        ZStack {
+            SpotlightView(
+                angle: viewModel.leftSpotlightAngle,
+                width: viewModel.leftSpotlightWidth,
+                color: .warmOrange,
+                opacity: 0.7,
+                blurRadius: 25,
+                offset: CGSize(width: -screenWidth * 0.4, height: 0),
+                animationProgress: viewModel.lightAnimationProgress
+            )
+            
+            SpotlightView(
+                angle: viewModel.rightSpotlightAngle,
+                width: viewModel.rightSpotlightWidth,
+                color: .pinkPurple,
+                opacity: 0.6,
+                blurRadius: 30,
+                offset: CGSize(width: screenWidth * 0.4, height: 0),
+                animationProgress: viewModel.lightAnimationProgress
+            )
+            
             Circle()
                 .fill(
                     RadialGradient(
                         colors: [
-                            .black.opacity(0.8),
-                            .black.opacity(0.6),
-                            Color(red: 0.3, green: 0.2, blue: 0.4)
+                            .goldenYellow.opacity(0.4 * viewModel.lightAnimationProgress),
+                            .warmOrange.opacity(0.2 * viewModel.lightAnimationProgress),
+                            .clear
                         ],
                         center: .center,
                         startRadius: 0,
-                        endRadius: containerWidth * 0.3
+                        endRadius: 300 * viewModel.lightAnimationProgress
                     )
                 )
-                .frame(width: containerWidth * 0.6, height: containerWidth * 0.6)
-                .overlay(
+                .blur(radius: 30)
+                .scaleEffect(0.8 + 0.2 * viewModel.lightAnimationProgress)
+        }
+    }
+    
+    // MARK: - Світлові плями на передньому плані (круговий рух)
+    private var lightSpotsForeground: some View {
+        ZStack {
+            ForEach(0..<8, id: \.self) { index in
+                if lightAngles.indices.contains(index) {
+                    let angle = lightAngles[index]
+                    let offset = viewModel.calculateCircularOffset(
+                        angle: angle,
+                        radius: circleRadius,
+                        progress: viewModel.lightAnimationProgress
+                    )
+                    
                     Circle()
-                        .stroke(LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom), lineWidth: 4)
-                        .blur(radius: 2)
-                )
-            
-            // Сітка динаміка
-            ForEach(0..<8) { index in
-                Circle()
-                    .stroke(.gray.opacity(0.3), lineWidth: 1)
-                    .frame(width: containerWidth * 0.45 - CGFloat(index) * (containerWidth * 0.06),
-                           height: containerWidth * 0.45 - CGFloat(index) * (containerWidth * 0.06))
+                        .fill(
+                            RadialGradient(
+                                colors: [
+                                    viewModel.randomLightColor().opacity(0.6),
+                                    .clear
+                                ],
+                                center: .center,
+                                startRadius: 0,
+                                endRadius: 20
+                            )
+                        )
+                        .frame(width: 40, height: 40)
+                        .offset(offset)
+                        .scaleEffect(0.5 + 0.5 * viewModel.lightAnimationProgress)
+                        .blur(radius: 8)
+                        .opacity(viewModel.lightAnimationProgress)
+                }
             }
-            
-            // ВІНІЛОВА ПЛАСТИНКА всередині динаміка
-            vinylRecordView
-                .scaleEffect(0.7) // Трохи зменшуємо для гарного розміщення
-            
-            // ТЕКСТ всередині контейнера
-            textContentView
-                .offset(y: containerHeight * 0.25) // Зміщуємо текст нижче
-            
-            // Неонове підсвічування
-            RoundedRectangle(cornerRadius: 24)
-                .stroke(
-                    LinearGradient(
-                        colors: [.purple, .blue, .purple],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 3
-                )
-                .frame(width: containerWidth, height: containerHeight)
-                .blur(radius: 1)
         }
-        .shadow(color: .purple.opacity(0.4), radius: 30, x: 0, y: 0)
-        .shadow(color: .black.opacity(0.6), radius: 20, x: 0, y: 10)
-    }
-    
-    private var lavaBubblesView: some View {
-        ForEach(viewModel.splash.bubbles) { bubble in
-            LavaBubbleView(bubble: bubble)
-        }
-    }
-    
-    private var vinylRecordView: some View {
-        let recordSize = min(UIScreen.main.bounds.width * 0.3, 140) // Трохи менший розмір
-        
-        return ZStack {
-            // Основа пластинки
-            recordBase(recordSize: recordSize)
-            
-            // Концентричні кола пластинки
-            recordGrooves(recordSize: recordSize)
-            
-            // Центральна етикетка
-            recordLabel(recordSize: recordSize)
-            
-            // Отвір у центрі
-            recordCenterHole(recordSize: recordSize)
-            
-            // Логотип на етикетці
-            recordLogo(recordSize: recordSize)
-        }
-    }
-    
-    private func recordBase(recordSize: CGFloat) -> some View {
-        Circle()
-            .fill(
-                RadialGradient(
-                    colors: [
-                        Color(red: 0.2, green: 0.2, blue: 0.25),
-                        Color(red: 0.1, green: 0.1, blue: 0.15),
-                        .black
-                    ],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: recordSize / 2
-                )
-            )
-            .frame(width: recordSize, height: recordSize)
-            .overlay(
-                Circle()
-                    .stroke(
-                        LinearGradient(
-                            colors: [.gray.opacity(0.6), .black],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        ),
-                        lineWidth: max(2, recordSize * 0.017)
-                    )
-            )
-            .shadow(color: .black.opacity(0.5), radius: recordSize * 0.1, x: 0, y: 5)
-    }
-    
-    private func recordGrooves(recordSize: CGFloat) -> some View {
-        ForEach(0..<6) { index in
-            let radius = recordSize * 0.7 - CGFloat(index) * (recordSize * 0.08)
-            Circle()
-                .stroke(
-                    LinearGradient(
-                        colors: [.gray.opacity(0.4), .black.opacity(0.8)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: max(1, recordSize * 0.008)
-                )
-                .frame(width: radius, height: radius)
-        }
-    }
-    
-    private func recordLabel(recordSize: CGFloat) -> some View {
-        Circle()
-            .fill(
-                RadialGradient(
-                    colors: [
-                        Color(red: 0.8, green: 0.7, blue: 0.3),
-                        Color(red: 0.6, green: 0.5, blue: 0.2),
-                        Color(red: 0.4, green: 0.3, blue: 0.1)
-                    ],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: recordSize * 0.17
-                )
-            )
-            .frame(width: recordSize * 0.33, height: recordSize * 0.33)
-            .overlay(
-                Circle()
-                    .stroke(.black.opacity(0.3), lineWidth: max(1, recordSize * 0.008))
-            )
-    }
-    
-    private func recordCenterHole(recordSize: CGFloat) -> some View {
-        Circle()
-            .fill(.black)
-            .frame(width: recordSize * 0.067, height: recordSize * 0.067)
-    }
-    
-    private func recordLogo(recordSize: CGFloat) -> some View {
-        Image(systemName: "music.note")
-            .font(.system(size: recordSize * 0.13, weight: .bold))
-            .foregroundColor(.white.opacity(0.9))
-            .scaleEffect(viewModel.splash.logoScale)
-    }
-    
-    private var textContentView: some View {
-        VStack(spacing: 12) {
-            Text("ConcertFlow")
-                .font(.custom("DancingScript-Regular", size: 32)) // Трохи менший розмір
-                .foregroundColor(.white)
-                .opacity(viewModel.splash.textOpacity)
-                .offset(y: viewModel.splash.textOffset)
-            
-            Text("Завантаження...")
-                .font(.custom("DancingScript-Regular", size: 16))
-                .foregroundColor(.white.opacity(0.7))
-                .opacity(viewModel.splash.textOpacity)
-                .offset(y: viewModel.splash.textOffset)
-        }
-    }
-}
-
-// Візуалізація лавової бульбашки
-struct LavaBubbleView: View {
-    let bubble: LavaBubble
-    
-    var body: some View {
-        Circle()
-            .fill(
-                RadialGradient(
-                    colors: [
-                        bubble.color,
-                        bubble.color.opacity(0.7),
-                        bubble.color.opacity(0.3)
-                    ],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: bubble.size / 2
-                )
-            )
-            .frame(width: bubble.size, height: bubble.size)
-            .position(bubble.position)
-            .blur(radius: 8)
-            .blendMode(.screen)
+        .animation(.easeOut(duration: 2.5), value: viewModel.lightAnimationProgress)
     }
 }
 
 #Preview {
     SplashView {
-        print("tapped")
+        print("Splash completed")
     }
 }

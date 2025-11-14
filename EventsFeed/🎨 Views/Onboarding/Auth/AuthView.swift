@@ -11,8 +11,8 @@ struct AuthView: View {
             VStack(spacing: 20) {
                 AuthButton(
                     title: "Увійти через Google",
-                    icon: "globe",
-                    color: .white,
+                    icon: "googleLogo",
+                    color: .secondary,
                     textColor: .black
                 ) {
                     onGoogleSignIn()
@@ -20,9 +20,9 @@ struct AuthView: View {
 
                 AuthButton(
                     title: "Увійти через Apple",
-                    icon: "applelogo",
-                    color: .black,
-                    textColor: .white
+                    icon: "appleLogo",
+                    color: .secondary,
+                    textColor: .black
                 ) {
                     onAppleSignIn()
                 }

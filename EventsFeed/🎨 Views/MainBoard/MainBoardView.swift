@@ -1,45 +1,51 @@
+// MainBoardView.swift
 import SwiftUI
 
 struct MainBoardView: View {
-    @EnvironmentObject private var viewModel: MainBoardViewModel
-    private let onLogout: () -> Void
+    private let tabCoordinator: MainBoardCoordinator
     
-    init(onLogout: @escaping () -> Void) {
-        self.onLogout = onLogout
+    init(tabCoordinator: MainBoardCoordinator) {
+        self.tabCoordinator = tabCoordinator
     }
     
     var body: some View {
-        VStack {
-            // Header
-            HStack {
-                Text("Music Services")
-                    .font(.title2)
-                    .bold()
-                
-                Spacer()
-                
-                Button("Sign Out") {
-                    viewModel.signOut()
-                    onLogout()
+        TabView {
+            // Головна сторінка
+            tabCoordinator.makeHomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Головна")
                 }
-                .foregroundColor(.red)
-            }
-            .padding()
+            
+            // Навігація/Досліджувати
+            tabCoordinator.makeExploreView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Досліджувати")
+                }
+            
+            // Профіль
+            tabCoordinator.makeProfileView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Профіль")
+                }
         }
+        .accentColor(.primary)
     }
 }
 
 #Preview {
     let container = DIContainer()
-    let viewModel = MainBoardViewModel(
-        authManager: container.resolve(AuthManager.self),
-        musicServiceManager: container.resolve(MusicServiceManager.self),
-        errorService: container.resolve(UIErrorService.self),
-        loadingService: container.resolve(LoadingService.self)
+    let viewModelFactory = ViewModelFactory(container: container)
+    
+    // Створюємо MainTabCoordinator для Preview
+    let tabCoordinator = MainBoardCoordinator(
+        viewModelFactory: viewModelFactory,
+        onLogout: {
+            print("User logged out from Preview")
+        }
     )
     
-    return MainBoardView(onLogout: {
-        print("User logged out")
-    })
-    .environmentObject(viewModel)
+    return MainBoardView(tabCoordinator: tabCoordinator)
 }

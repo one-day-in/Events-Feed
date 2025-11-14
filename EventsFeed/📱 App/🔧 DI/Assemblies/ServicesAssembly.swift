@@ -3,31 +3,40 @@ import Swinject
 final class ServicesAssembly: Assembly {
     func assemble(container: Container) {
         // MARK: - Auth Providers
-        container.registerMainActor(GoogleAuthService.self) { _ in
-            return GoogleAuthService()
+        container.register(AuthClient.self) { _ in
+            return AuthClient()
         }
         .inObjectScope(.container)
         
-        container.registerMainActor(AppleAuthService.self) { _ in
-            return AppleAuthService(provider: AuthProvider.apple)
+        
+        // MARK: - Music Services
+        container.register(MusicServiceClient.self, name: "spotify") { _ in
+            MusicServiceClient(
+                serviceType: .spotify,
+                constants: .spotify
+            )
+        }
+        
+        container.register(MusicServiceClient.self, name: "youtube") { _ in
+            MusicServiceClient(
+                serviceType: .youtubeMusic,
+                constants: .youtubeMusic
+            )
+        }
+        
+        container.register(MusicServiceClient.self, name: "apple") { _ in
+            MusicServiceClient(serviceType: .appleMusic)
+        }
+        
+        
+        container.register(ApiClient.self) { _ in
+            ApiClient()
         }
         .inObjectScope(.container)
         
-        // MARK: - Spotify
-        container.registerMainActor(SpotifyServiceClient.self) { _ in
-            return SpotifyServiceClient()
-        }
-        .inObjectScope(.container)
-        
-        // MARK: - YouTube Music
-        container.registerMainActor(YouTubeMusicServiceClient.self) { _ in
-            return YouTubeMusicServiceClient()
-        }
-        .inObjectScope(.container)
-        
-        // MARK: - Apple Music
-        container.registerMainActor(AppleMusicServiceClient.self) { _ in
-            return AppleMusicServiceClient()
+        container.register(ConcertService.self) { resolver in
+            let apiClient = resolver.resolve(ApiClient.self)!
+            return ConcertService(apiClient: apiClient)
         }
         .inObjectScope(.container)
     }

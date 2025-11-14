@@ -1,23 +1,22 @@
 import Swinject
 
 final class ManagersAssembly: Assembly {
-    func assemble(container: Container) {        
+    func assemble(container: Container) {
         // MARK: - AuthManager
-        container.registerMainActor(AuthManager.self) { resolver in
-            AuthManager(
-                googleAuthService: resolver.resolve(GoogleAuthService.self)!,
-                appleAuthService: resolver.resolve(AppleAuthService.self)!,
-            )
+        container.register(AuthManager.self) { resolver in
+            let authClient = resolver.resolve(AuthClient.self)!
+            return AuthManager(authClient: authClient)
         }
         .inObjectScope(.container)
         
         // MARK: - MusicServiceManager
-        container.registerMainActor(MusicServiceManager.self) { resolver in
-            MusicServiceManager(
-                spotifyClient: resolver.resolve(SpotifyServiceClient.self)!,
-                youtubeClient: resolver.resolve(YouTubeMusicServiceClient.self)!,
-                appleMusicClient: resolver.resolve(AppleMusicServiceClient.self)!
-            )
+        container.register(MusicServiceManager.self) { resolver in
+            let clients: [MusicServiceType: MusicServiceClient] = [
+                .spotify: resolver.resolve(MusicServiceClient.self, name: "spotify")!,
+                .youtubeMusic: resolver.resolve(MusicServiceClient.self, name: "youtube")!,
+                .appleMusic:resolver.resolve(MusicServiceClient.self, name: "apple")!
+            ]
+            return MusicServiceManager(clients: clients)
         }
         .inObjectScope(.container)
     }

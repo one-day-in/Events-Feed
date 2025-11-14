@@ -11,8 +11,10 @@ struct AuthButton: View {
     var body: some View {
         Button(action: action) {
             HStack {
-                Image(systemName: icon)
-                    .font(.system(size: 20, weight: .semibold))
+                Image(icon) // Назва має співпадати з назвою в Assets
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
                 Text(title)
                     .font(.system(size: 18, weight: .semibold))
             }

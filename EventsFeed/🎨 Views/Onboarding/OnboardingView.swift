@@ -2,20 +2,19 @@ import SwiftUI
 
 struct OnboardingView: View {
     @EnvironmentObject private var viewModel: OnboardingViewModel
-    private let onComplete: () -> Void
-    @State private var isAuthViewVisible = false
-    
-    init(onComplete: @escaping () -> Void) {
-        self.onComplete = onComplete
-    }
+    let onComplete: () -> Void
     
     var body: some View {
-        ZStack {
-            SplashView(onSkip: {
-                viewModel.skipSplashAnimation()
+        ZStack {            
+            SplashView(onComplete: {
+                viewModel.handleSplashCompletion()
             })
+            .opacity((viewModel.shouldShowAuthButtons ? 0.65 : 1.0))
+            .blur(radius: viewModel.shouldShowAuthButtons ? 2 : 0)
+            .brightness(viewModel.shouldShowAuthButtons ? -0.1 : 0)
+            .animation(.spring(response: 0.6, dampingFraction: 0.8), value: viewModel.shouldShowAuthButtons)
             
-            if viewModel.shouldShowAuthSelection {
+            if viewModel.shouldShowAuthButtons && !viewModel.isUserAuthenticated {
                 AuthView(
                     onGoogleSignIn: {
                         Task { await viewModel.signInWithGoogle() }
@@ -24,25 +23,23 @@ struct OnboardingView: View {
                         Task { await viewModel.signInWithApple() }
                     }
                 )
-                .opacity(isAuthViewVisible ? 1 : 0)
-                .scaleEffect(isAuthViewVisible ? 1 : 0.8)
-                .offset(y: isAuthViewVisible ? 0 : 50)
-                .animation(
-                    .spring(response: 0.7, dampingFraction: 0.7, blendDuration: 0.5)
-                    .delay(0.1),
-                    value: isAuthViewVisible
-                )
-                .onAppear {
-                    isAuthViewVisible = true
-                }
-                .onDisappear {
-                    isAuthViewVisible = false
-                }
+                .transition(.asymmetric(
+                    insertion: .opacity
+                        .combined(with: .scale(scale: 0.8, anchor: .center))
+                        .combined(with: .offset(y: 50))
+                        .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.5)),
+                    removal: .opacity
+                        .combined(with: .scale(scale: 0.9))
+                        .animation(.easeOut(duration: 0.4))
+                ))
             }
         }
-        .onChange(of: viewModel.shouldCompleteOnboarding) { shouldComplete, _ in
-            if shouldComplete {
-                onComplete()
+        .onAppear(perform: viewModel.checkAuthentication)
+        .onChange(of: viewModel.shouldProceedToMain) {
+            if viewModel.shouldProceedToMain {
+                withAnimation(.easeInOut(duration: 0.6)) {
+                    onComplete()
+                }
             }
         }
     }
