@@ -1,4 +1,3 @@
-// MainTabCoordinator.swift
 import SwiftUI
 
 @MainActor

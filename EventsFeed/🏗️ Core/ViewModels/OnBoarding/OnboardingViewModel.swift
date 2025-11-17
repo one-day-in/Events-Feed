@@ -92,7 +92,7 @@ final class OnboardingViewModel: ObservableObject {
             .sink { [weak self] isLoggedIn in
                 self?.isUserAuthenticated = isLoggedIn
                 if isLoggedIn {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
                         self?.shouldProceedToMain = true
                     }
                 }

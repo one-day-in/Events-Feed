@@ -1,6 +1,4 @@
-// AppCoordinator.swift
 import SwiftUI
-import Combine
 
 // MARK: - App State
 enum AppState {
