@@ -15,7 +15,7 @@ final class AuthManager: ObservableObject {
     
     // MARK: - Initialization
     init(
-        authClient: AuthClient = AuthClient(),
+        authClient: AuthClient,
         userDefaults: UserDefaults = .standard
     ) {
         self.authClient = authClient
@@ -50,7 +50,7 @@ extension AuthManager {
             case .google:
                 user = try await authClient.restoreGoogleSession()
             case .apple:
-                user = nil // Apple автоматично керує сесіями
+                user = nil // Apple Sign-In тимчасово не підтримується, бо немає Apple Dev аккаунта.
             }
             
             if let user = user {
@@ -63,13 +63,13 @@ extension AuthManager {
         }
     }
     
-    func signOut() throws {
+    func signOut() {
         if let provider = currentProvider {
             switch provider {
             case .google:
-                try authClient.signOutGoogle()
+                authClient.signOutGoogle()
             case .apple:
-                try authClient.signOutApple()
+                authClient.signOutApple()
             }
         }
         

@@ -3,31 +3,16 @@ import Swinject
 final class ServicesAssembly: Assembly {
     func assemble(container: Container) {
         // MARK: - Auth Providers
-        container.register(AuthClient.self) { _ in
-            return AuthClient()
+        container.register(AuthClient.self) { resolver in
+            let presentationContextProviding = resolver.resolve(PresentationContextProviding.self)!
+            return AuthClient(context: presentationContextProviding)
         }
         .inObjectScope(.container)
         
         
-        // MARK: - Music Services
-        container.register(MusicServiceClient.self, name: "spotify") { _ in
-            MusicServiceClient(
-                serviceType: .spotify,
-                constants: .spotify
-            )
+        container.register(SecureTokenStorage.self) { _ in
+            SecureTokenStorage(service: "com.oneDayin.music.tokens")
         }
-        
-        container.register(MusicServiceClient.self, name: "youtube") { _ in
-            MusicServiceClient(
-                serviceType: .youtubeMusic,
-                constants: .youtubeMusic
-            )
-        }
-        
-        container.register(MusicServiceClient.self, name: "apple") { _ in
-            MusicServiceClient(serviceType: .appleMusic)
-        }
-        
         
         container.register(ApiClient.self) { _ in
             ApiClient()

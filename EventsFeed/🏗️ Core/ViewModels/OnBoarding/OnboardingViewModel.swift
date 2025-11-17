@@ -107,6 +107,6 @@ final class OnboardingViewModel: ObservableObject {
     
     private func isAppleSignInAvailable() -> Bool {
         // Перевірка доступності Sign in with Apple
-        return true
+        return false
     }
 }

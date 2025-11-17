@@ -3,12 +3,16 @@ import CryptoKit
 
 final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProviding {
     private let constants: MusicServiceConstants
-
-    init(constants: MusicServiceConstants) {
+    private let context: PresentationContextProviding
+    
+    init(
+        constants: MusicServiceConstants,
+        context: PresentationContextProviding
+    ) {
         self.constants = constants
-        super.init()
+        self.context = context
     }
-
+    
     func authenticate() async throws -> (String, TimeInterval?) {
         let (verifier, challenge) = generatePKCE()
         guard let authURL = buildAuthURL(codeChallenge: challenge) else {
@@ -17,16 +21,21 @@ final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProv
         guard let callbackScheme = URL(string: constants.redirectURI)?.scheme else {
             throw URLError(.badURL)
         }
-
+        
         let code = try await performWebAuth(authURL: authURL, callbackScheme: callbackScheme)
         let (token, expiresIn) = try await exchangeCodeForToken(code: code, codeVerifier: verifier)
         return (token, expiresIn)
     }
     
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return UIApplication.shared.rootViewController?.view.window ?? UIWindow()
+        guard let anchor = context.presentationAnchor else {
+            assertionFailure("No presentation anchor available for WebAuth session")
+            return ASPresentationAnchor()
+        }
+        return anchor
     }
 
+    
     private func buildAuthURL(codeChallenge: String) -> URL? {
         var components = URLComponents(string: constants.authBaseURL)
         var queryItems = [
@@ -48,7 +57,7 @@ final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProv
         components?.queryItems = queryItems
         return components?.url
     }
-
+    
     private func performWebAuth(authURL: URL, callbackScheme: String) async throws -> String {
         try await withCheckedThrowingContinuation { continuation in
             let session = ASWebAuthenticationSession(
@@ -90,7 +99,7 @@ final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProv
             .map { "\($0.key)=\($0.value.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? "")" }
             .joined(separator: "&").data(using: .utf8)
         req.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-
+        
         let (data, resp) = try await URLSession.shared.data(for: req)
         guard let http = resp as? HTTPURLResponse, 200..<300 ~= http.statusCode else {
             throw URLError(.badServerResponse)
@@ -102,7 +111,7 @@ final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProv
         let expiresIn = (json?["expires_in"] as? NSNumber)?.doubleValue
         return (token, expiresIn)
     }
-
+    
     // PKCE
     private func generatePKCE() -> (String, String) {
         let verifier = randomString(length: 64)
@@ -113,7 +122,7 @@ final class WebAuthHandler: NSObject, ASWebAuthenticationPresentationContextProv
             .replacingOccurrences(of: "=", with: "")
         return (verifier, challenge)
     }
-
+    
     private func randomString(length: Int) -> String {
         let chars = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~")
         return String((0..<length).map { _ in chars.randomElement()! })

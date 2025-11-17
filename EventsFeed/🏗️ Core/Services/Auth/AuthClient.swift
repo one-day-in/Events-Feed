@@ -1,11 +1,15 @@
-import UIKit
 import AuthenticationServices
 import GoogleSignIn
 
 final class AuthClient: NSObject {
     
-    // MARK: - Configuration
-    override init() {
+    private let context: PresentationContextProviding
+    private var appleContinuation: CheckedContinuation<User, Error>?
+    
+    // MARK: - Init
+    
+    init(context: PresentationContextProviding) {
+        self.context = context
         super.init()
         configureGoogleSignIn()
     }
@@ -18,7 +22,7 @@ final class AuthClient: NSObject {
     // MARK: - Google Auth
     @MainActor
     func signInWithGoogle() async throws -> User {
-        guard let presentingVC = UIApplication.shared.rootViewController else {
+        guard let presentingVC = context.presentingViewController else {
             throw URLError(.badURL)
         }
         
@@ -27,20 +31,17 @@ final class AuthClient: NSObject {
     }
     
     func restoreGoogleSession() async throws -> User? {
-        guard GIDSignIn.sharedInstance.hasPreviousSignIn() else {
-            return nil
-        }
-        
+        guard GIDSignIn.sharedInstance.hasPreviousSignIn() else { return nil }
         let googleUser = try await GIDSignIn.sharedInstance.restorePreviousSignIn()
         return User(from: googleUser)
     }
     
-    func signOutGoogle() throws {
+    func signOutGoogle() {
         GIDSignIn.sharedInstance.signOut()
     }
     
     func getGoogleAccessToken() async throws -> String? {
-        return GIDSignIn.sharedInstance.currentUser?.accessToken.tokenString
+        GIDSignIn.sharedInstance.currentUser?.accessToken.tokenString
     }
     
     func handleGoogleAuthCallback(_ url: URL) -> Bool {
@@ -48,10 +49,8 @@ final class AuthClient: NSObject {
     }
     
     // MARK: - Apple Auth
-    private var appleContinuation: CheckedContinuation<User, Error>?
-    
     func signInWithApple() async throws -> User {
-        return try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { continuation in
             self.appleContinuation = continuation
             
             let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -64,32 +63,37 @@ final class AuthClient: NSObject {
         }
     }
     
-    func signOutApple() throws {
+    func signOutApple() {
         // Apple Sign-In не вимагає явного signOut
     }
 }
 
 // MARK: - Apple Sign-In Delegates
 extension AuthClient: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController,
-                               didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithAuthorization authorization: ASAuthorization
+    ) {
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
               let continuation = appleContinuation else { return }
         
         let user = User(from: appleIDCredential)
         continuation.resume(returning: user)
-        self.appleContinuation = nil
+        appleContinuation = nil
     }
     
-    func authorizationController(controller: ASAuthorizationController,
-                               didCompleteWithError error: Error) {
+    func authorizationController(
+        controller: ASAuthorizationController,
+        didCompleteWithError error: Error
+    ) {
         appleContinuation?.resume(throwing: error)
-        self.appleContinuation = nil
+        appleContinuation = nil
     }
 }
 
 extension AuthClient: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return UIApplication.shared.rootViewController?.view.window ?? UIWindow()
+        context.presentationAnchor ?? UIWindow()
     }
 }
+

@@ -9,10 +9,6 @@ protocol TokenStorageProtocol {
     func isTokenExpired(expiryKey: String) -> Bool
 }
 
-protocol TokenStorageClient {
-    var tokenStorage: TokenStorageProtocol { get }
-}
-
 final class SecureTokenStorage: TokenStorageProtocol {
     private let service: String
     init(service: String) { self.service = service }

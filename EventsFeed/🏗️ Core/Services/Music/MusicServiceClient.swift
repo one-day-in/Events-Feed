@@ -1,22 +1,27 @@
 import Foundation
 
-class MusicServiceClient: TokenStorageClient {
+class MusicServiceClient {
     let serviceType: MusicServiceType
-    let tokenStorage: TokenStorageProtocol
+    private let tokenStorage: TokenStorageProtocol
     private let constants: MusicServiceConstants?
+    private let context: PresentationContextProviding
     
-    init(serviceType: MusicServiceType,
-         constants: MusicServiceConstants? = nil,
-         tokenStorage: TokenStorageProtocol = SecureTokenStorage(service: "MusicService")) {
+    init(
+        serviceType: MusicServiceType,
+        tokenStorage: TokenStorageProtocol,
+        context: PresentationContextProviding
+    ) {
         self.serviceType = serviceType
-        self.constants = constants
         self.tokenStorage = tokenStorage
+        self.constants = MusicServiceConstants.forType(serviceType)
+        self.context = context
     }
     
+    @MainActor
     func authenticate() async throws {
         guard serviceType.isOAuthService, let constants = constants else { return }
         
-        let webAuthHandler = await WebAuthHandler(constants: constants)
+        let webAuthHandler = WebAuthHandler(constants: constants, context: context)
         let (token, expiresIn) = try await webAuthHandler.authenticate()
         await saveAuthTokens(token: token, expiresIn: expiresIn)
     }

@@ -11,5 +11,11 @@ final class CoreAssembly: Assembly {
             return LoadingService()
         }
         .inObjectScope(.container)
+        
+        container.register(PresentationContextProviding.self) { _ in
+            return DefaultPresentationContextProvider()
+        }
+        .inObjectScope(.container)
+
     }
 }

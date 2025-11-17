@@ -11,13 +11,30 @@ final class ManagersAssembly: Assembly {
         
         // MARK: - MusicServiceManager
         container.register(MusicServiceManager.self) { resolver in
+            let context = resolver.resolve(PresentationContextProviding.self)!
+            let tokenStorage = resolver.resolve(TokenStorageProtocol.self)!
+
             let clients: [MusicServiceType: MusicServiceClient] = [
-                .spotify: resolver.resolve(MusicServiceClient.self, name: "spotify")!,
-                .youtubeMusic: resolver.resolve(MusicServiceClient.self, name: "youtube")!,
-                .appleMusic:resolver.resolve(MusicServiceClient.self, name: "apple")!
+                .spotify: MusicServiceClient(
+                    serviceType: .spotify,
+                    tokenStorage: tokenStorage,
+                    context: context
+                ),
+                .youtubeMusic: MusicServiceClient(
+                    serviceType: .youtubeMusic,
+                    tokenStorage: tokenStorage,
+                    context: context
+                ),
+                .appleMusic: MusicServiceClient(
+                    serviceType: .appleMusic,
+                    tokenStorage: tokenStorage,
+                    context: context
+                )
             ]
+
             return MusicServiceManager(clients: clients)
         }
         .inObjectScope(.container)
+
     }
 }

@@ -25,4 +25,15 @@ struct MusicServiceConstants {
         redirectURI: "com.googleusercontent.apps.487751122186-3jkc1mkdi0pfr82kcpjtnipv470utl1s:/oauth2redirect",
         scopes: "https://www.googleapis.com/auth/youtube.readonly"
     )
+    
+    static func forType(_ type: MusicServiceType) -> MusicServiceConstants? {
+            switch type {
+            case .spotify:
+                return .spotify
+            case .youtubeMusic:
+                return .youtubeMusic
+            case .appleMusic:
+                return nil
+            }
+        }
 }
