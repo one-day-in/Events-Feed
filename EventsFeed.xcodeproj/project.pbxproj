@@ -27,12 +27,12 @@
 		8426E81F2EAF2411003656CB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426E81E2EAF2411003656CB /* AppCoordinator.swift */; };
 		8426E8232EAF2965003656CB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8426E8222EAF2965003656CB /* OnboardingView.swift */; };
 		8440C67D2E8543ED00EA6A9D /* ConcertCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */; };
-		84497E4C2E93BC2900DDBB09 /* 🎧MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4B2E93BC2900DDBB09 /* 🎧MusicServiceManager.swift */; };
+		84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */; };
 		84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E522E94118C00DDBB09 /* ConcertService.swift */; };
 		84497E552E9415A800DDBB09 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84497E542E9415A800DDBB09 /* AppError.swift */; };
 		845B33A82EC45A0C003F80E0 /* ConcertMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B33A72EC45A0C003F80E0 /* ConcertMapper.swift */; };
-		845FCEC32EAA1F3800D4D460 /* MusicServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCEC22EAA1F3800D4D460 /* MusicServiceConstants.swift */; };
-		845FCED32EAA3A4C00D4D460 /* TokenStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCED22EAA3A4C00D4D460 /* TokenStorageProtocol.swift */; };
+		845FCEC32EAA1F3800D4D460 /* MusicServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCEC22EAA1F3800D4D460 /* MusicServiceConfig.swift */; };
+		845FCED32EAA3A4C00D4D460 /* MusicServiceTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCED22EAA3A4C00D4D460 /* MusicServiceTokenStore.swift */; };
 		845FCED72EAA480000D4D460 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCED62EAA480000D4D460 /* ErrorHandler.swift */; };
 		845FCEDC2EAA67B000D4D460 /* AuthEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCEDB2EAA67B000D4D460 /* AuthEnums.swift */; };
 		845FCEDE2EAA719500D4D460 /* LoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FCEDD2EAA719500D4D460 /* LoadingService.swift */; };
@@ -42,7 +42,7 @@
 		847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12412E96517F0087BD88 /* ErrorBannerView.swift */; };
 		847E12452E9653170087BD88 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12442E9653170087BD88 /* ProfileHeaderView.swift */; };
 		847E124D2E9653220087BD88 /* MusicServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E124C2E9653220087BD88 /* MusicServicesView.swift */; };
-		847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12642E9792680087BD88 /* MusicServiceClient.swift */; };
+		847E12652E9792680087BD88 /* MusicProviderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12642E9792680087BD88 /* MusicProviderClient.swift */; };
 		847E12852E98D6C50087BD88 /* AdaptiveLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E12842E98D6C50087BD88 /* AdaptiveLayout.swift */; };
 		84863C972EC1D49D00C7FA50 /* MusicServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84863C962EC1D49D00C7FA50 /* MusicServiceCell.swift */; };
 		84863C9A2EC1D4D000C7FA50 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84863C992EC1D4D000C7FA50 /* Components.swift */; };
@@ -58,11 +58,14 @@
 		849403F22EA10D2800FC96CD /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403E52EA10D2800FC96CD /* ServicesAssembly.swift */; };
 		849403F72EA205FF00FC96CD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403F62EA205FF00FC96CD /* SplashViewModel.swift */; };
 		849404002EA218A800FC96CD /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849403FF2EA218A800FC96CD /* SplashView.swift */; };
-		849404052EA2397000FC96CD /* MusicServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849404042EA2397000FC96CD /* MusicServiceType.swift */; };
 		8494042A2EA7B20C00FC96CD /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849404292EA7B20C00FC96CD /* MainBoardView.swift */; };
 		8497676D2EC5B8E100E59A1E /* SpotLightShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497676C2EC5B8E100E59A1E /* SpotLightShape.swift */; };
 		8497676F2EC5BCDD00E59A1E /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497676E2EC5BCDD00E59A1E /* Color+Extensions.swift */; };
-		849767772ECAE43700E59A1E /* ContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849767762ECAE43700E59A1E /* ContextProvider.swift */; };
+		8497677D2ECC63E500E59A1E /* MusicServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497677C2ECC63E500E59A1E /* MusicServiceType.swift */; };
+		849767812ECC643F00E59A1E /* PKCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849767802ECC643F00E59A1E /* PKCE.swift */; };
+		849767832ECC645E00E59A1E /* OAuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849767822ECC645E00E59A1E /* OAuthFlow.swift */; };
+		849767882ECC704000E59A1E /* MusicServiceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849767872ECC704000E59A1E /* MusicServiceToken.swift */; };
+		8497679D2ECDA13700E59A1E /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497679C2ECDA13700E59A1E /* KeychainHelper.swift */; };
 		84A71E082E9C94DB005F0E4C /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E072E9C94DB005F0E4C /* ExploreView.swift */; };
 		84A71E1A2E9CA402005F0E4C /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E192E9CA402005F0E4C /* AuthButtonView.swift */; };
 		84A71E212E9CA818005F0E4C /* 👤AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A71E202E9CA818005F0E4C /* 👤AuthManager.swift */; };
@@ -70,7 +73,6 @@
 		84B564E12EB3522D00CC246B /* AdaptiveBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B564E02EB3522D00CC246B /* AdaptiveBackgroundView.swift */; };
 		84B564E52EB379CD00CC246B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B564E42EB379CD00CC246B /* Loader.swift */; };
 		84C1C4522E8C0A9600A39C8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1C4512E8C0A9600A39C8D /* User.swift */; };
-		84E5E74C2EBDBDE100760ABE /* WebAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5E74B2EBDBDE100760ABE /* WebAuthHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,12 +113,12 @@
 		8426E81E2EAF2411003656CB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8426E8222EAF2965003656CB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8440C67C2E8543ED00EA6A9D /* ConcertCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertCardView.swift; sourceTree = "<group>"; };
-		84497E4B2E93BC2900DDBB09 /* 🎧MusicServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🎧MusicServiceManager.swift"; sourceTree = "<group>"; };
+		84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceManager.swift; sourceTree = "<group>"; };
 		84497E522E94118C00DDBB09 /* ConcertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertService.swift; sourceTree = "<group>"; };
 		84497E542E9415A800DDBB09 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		845B33A72EC45A0C003F80E0 /* ConcertMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertMapper.swift; sourceTree = "<group>"; };
-		845FCEC22EAA1F3800D4D460 /* MusicServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceConstants.swift; sourceTree = "<group>"; };
-		845FCED22EAA3A4C00D4D460 /* TokenStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageProtocol.swift; sourceTree = "<group>"; };
+		845FCEC22EAA1F3800D4D460 /* MusicServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceConfig.swift; sourceTree = "<group>"; };
+		845FCED22EAA3A4C00D4D460 /* MusicServiceTokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceTokenStore.swift; sourceTree = "<group>"; };
 		845FCED62EAA480000D4D460 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		845FCEDB2EAA67B000D4D460 /* AuthEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEnums.swift; sourceTree = "<group>"; };
 		845FCEDD2EAA719500D4D460 /* LoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingService.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		847E12412E96517F0087BD88 /* ErrorBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBannerView.swift; sourceTree = "<group>"; };
 		847E12442E9653170087BD88 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		847E124C2E9653220087BD88 /* MusicServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServicesView.swift; sourceTree = "<group>"; };
-		847E12642E9792680087BD88 /* MusicServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceClient.swift; sourceTree = "<group>"; };
+		847E12642E9792680087BD88 /* MusicProviderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicProviderClient.swift; sourceTree = "<group>"; };
 		847E12842E98D6C50087BD88 /* AdaptiveLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayout.swift; sourceTree = "<group>"; };
 		84863C962EC1D49D00C7FA50 /* MusicServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceCell.swift; sourceTree = "<group>"; };
 		84863C992EC1D4D000C7FA50 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -141,11 +143,14 @@
 		849403EB2EA10D2800FC96CD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		849403F62EA205FF00FC96CD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		849403FF2EA218A800FC96CD /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		849404042EA2397000FC96CD /* MusicServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceType.swift; sourceTree = "<group>"; };
 		849404292EA7B20C00FC96CD /* MainBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		8497676C2EC5B8E100E59A1E /* SpotLightShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotLightShape.swift; sourceTree = "<group>"; };
 		8497676E2EC5BCDD00E59A1E /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		849767762ECAE43700E59A1E /* ContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextProvider.swift; sourceTree = "<group>"; };
+		8497677C2ECC63E500E59A1E /* MusicServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceType.swift; sourceTree = "<group>"; };
+		849767802ECC643F00E59A1E /* PKCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCE.swift; sourceTree = "<group>"; };
+		849767822ECC645E00E59A1E /* OAuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthFlow.swift; sourceTree = "<group>"; };
+		849767872ECC704000E59A1E /* MusicServiceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceToken.swift; sourceTree = "<group>"; };
+		8497679C2ECDA13700E59A1E /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		84A71E072E9C94DB005F0E4C /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		84A71E192E9CA402005F0E4C /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
 		84A71E202E9CA818005F0E4C /* 👤AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👤AuthManager.swift"; sourceTree = "<group>"; };
@@ -153,7 +158,6 @@
 		84B564E02EB3522D00CC246B /* AdaptiveBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveBackgroundView.swift; sourceTree = "<group>"; };
 		84B564E42EB379CD00CC246B /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		84C1C4512E8C0A9600A39C8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		84E5E74B2EBDBDE100760ABE /* WebAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAuthHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -235,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				0E6B55F02E795647004F2446 /* MockData.swift */,
-				849767762ECAE43700E59A1E /* ContextProvider.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -295,14 +298,15 @@
 			path = Handlers;
 			sourceTree = "<group>";
 		};
-		847E12052E9561730087BD88 /* Music */ = {
+		847E12052E9561730087BD88 /* MusicServices */ = {
 			isa = PBXGroup;
 			children = (
-				84497E4B2E93BC2900DDBB09 /* 🎧MusicServiceManager.swift */,
-				847E12642E9792680087BD88 /* MusicServiceClient.swift */,
-				849403A72EA0DBF900FC96CD /* Utils */,
+				84497E4B2E93BC2900DDBB09 /* MusicServiceManager.swift */,
+				849403A72EA0DBF900FC96CD /* API */,
+				849767892ECC707D00E59A1E /* Linking */,
+				849767862ECC701100E59A1E /* Core */,
 			);
-			path = Music;
+			path = MusicServices;
 			sourceTree = "<group>";
 		};
 		847E12172E956E030087BD88 /* 📱 App */ = {
@@ -363,9 +367,7 @@
 		847E12612E9790770087BD88 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				847E121C2E956F9C0087BD88 /* Auth */,
 				0ED3ED192E78061F0034626C /* Content */,
-				847E12052E9561730087BD88 /* Music */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -410,6 +412,8 @@
 		849403962EA0C87D00FC96CD /* 🏗️ Core */ = {
 			isa = PBXGroup;
 			children = (
+				847E12052E9561730087BD88 /* MusicServices */,
+				847E121C2E956F9C0087BD88 /* Auth */,
 				845FCEAB2EA8EE3B00D4D460 /* Handlers */,
 				847E12612E9790770087BD88 /* Services */,
 				849403F52EA1FD5300FC96CD /* ViewModels */,
@@ -439,15 +443,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		849403A72EA0DBF900FC96CD /* Utils */ = {
+		849403A72EA0DBF900FC96CD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				845FCEC22EAA1F3800D4D460 /* MusicServiceConstants.swift */,
-				849404042EA2397000FC96CD /* MusicServiceType.swift */,
-				845FCED22EAA3A4C00D4D460 /* TokenStorageProtocol.swift */,
-				84E5E74B2EBDBDE100760ABE /* WebAuthHandler.swift */,
+				847E12642E9792680087BD88 /* MusicProviderClient.swift */,
 			);
-			path = Utils;
+			path = API;
 			sourceTree = "<group>";
 		};
 		849403BC2EA0EC9400FC96CD /* Auth */ = {
@@ -571,6 +572,27 @@
 				8497676C2EC5B8E100E59A1E /* SpotLightShape.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		849767862ECC701100E59A1E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8497677C2ECC63E500E59A1E /* MusicServiceType.swift */,
+				845FCEC22EAA1F3800D4D460 /* MusicServiceConfig.swift */,
+				845FCED22EAA3A4C00D4D460 /* MusicServiceTokenStore.swift */,
+				8497679C2ECDA13700E59A1E /* KeychainHelper.swift */,
+				849767872ECC704000E59A1E /* MusicServiceToken.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		849767892ECC707D00E59A1E /* Linking */ = {
+			isa = PBXGroup;
+			children = (
+				849767822ECC645E00E59A1E /* OAuthFlow.swift */,
+				849767802ECC643F00E59A1E /* PKCE.swift */,
+			);
+			path = Linking;
 			sourceTree = "<group>";
 		};
 		84A71DFE2E9C8F7C005F0E4C /* Utilities */ = {
@@ -752,7 +774,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B564E12EB3522D00CC246B /* AdaptiveBackgroundView.swift in Sources */,
-				849404052EA2397000FC96CD /* MusicServiceType.swift in Sources */,
 				84863C9A2EC1D4D000C7FA50 /* Components.swift in Sources */,
 				840D746A2EBB2C0600713AF7 /* HomeViewModel.swift in Sources */,
 				8440C67D2E8543ED00EA6A9D /* ConcertCardView.swift in Sources */,
@@ -769,20 +790,22 @@
 				845FCEDC2EAA67B000D4D460 /* AuthEnums.swift in Sources */,
 				841A16972E8BC9570007F28C /* HeaderView.swift in Sources */,
 				84B564E52EB379CD00CC246B /* Loader.swift in Sources */,
+				849767812ECC643F00E59A1E /* PKCE.swift in Sources */,
 				84863C972EC1D49D00C7FA50 /* MusicServiceCell.swift in Sources */,
-				847E12652E9792680087BD88 /* MusicServiceClient.swift in Sources */,
+				847E12652E9792680087BD88 /* MusicProviderClient.swift in Sources */,
 				840D746E2EBB38C500713AF7 /* MainBoardCoordinator.swift in Sources */,
 				0ED3ED0E2E7805090034626C /* ConcertBox.swift in Sources */,
 				84497E532E94118E00DDBB09 /* ConcertService.swift in Sources */,
 				84863CAB2EC31E9C00C7FA50 /* AuthClient.swift in Sources */,
-				849767772ECAE43700E59A1E /* ContextProvider.swift in Sources */,
 				849403EE2EA10D2800FC96CD /* DIContainer.swift in Sources */,
 				849403F02EA10D2800FC96CD /* ManagersAssembly.swift in Sources */,
+				849767832ECC645E00E59A1E /* OAuthFlow.swift in Sources */,
 				8426E81F2EAF2411003656CB /* AppCoordinator.swift in Sources */,
 				849403F12EA10D2800FC96CD /* CoreAssembly.swift in Sources */,
 				849403F22EA10D2800FC96CD /* ServicesAssembly.swift in Sources */,
 				849403BA2EA0EBAA00FC96CD /* ProfileViewModel.swift in Sources */,
-				84497E4C2E93BC2900DDBB09 /* 🎧MusicServiceManager.swift in Sources */,
+				84497E4C2E93BC2900DDBB09 /* MusicServiceManager.swift in Sources */,
+				849767882ECC704000E59A1E /* MusicServiceToken.swift in Sources */,
 				8497676F2EC5BCDD00E59A1E /* Color+Extensions.swift in Sources */,
 				84863CAE2EC346E600C7FA50 /* ResponceDTO.swift in Sources */,
 				849403F72EA205FF00FC96CD /* SplashViewModel.swift in Sources */,
@@ -790,19 +813,20 @@
 				845FCEDE2EAA719500D4D460 /* LoadingService.swift in Sources */,
 				84A71E082E9C94DB005F0E4C /* ExploreView.swift in Sources */,
 				845FCED72EAA480000D4D460 /* ErrorHandler.swift in Sources */,
-				84E5E74C2EBDBDE100760ABE /* WebAuthHandler.swift in Sources */,
 				84497E552E9415A800DDBB09 /* AppError.swift in Sources */,
 				847E12422E96517F0087BD88 /* ErrorBannerView.swift in Sources */,
 				84C1C4522E8C0A9600A39C8D /* User.swift in Sources */,
+				8497679D2ECDA13700E59A1E /* KeychainHelper.swift in Sources */,
 				849404002EA218A800FC96CD /* SplashView.swift in Sources */,
 				84863C9D2EC1E16400C7FA50 /* ApiClient.swift in Sources */,
 				847E12452E9653170087BD88 /* ProfileHeaderView.swift in Sources */,
 				8474EE282EB09DDD00BA9634 /* ViewModelFactory.swift in Sources */,
 				847E12852E98D6C50087BD88 /* AdaptiveLayout.swift in Sources */,
 				841A169D2E8BDEF80007F28C /* ShimmerModifier.swift in Sources */,
-				845FCED32EAA3A4C00D4D460 /* TokenStorageProtocol.swift in Sources */,
+				845FCED32EAA3A4C00D4D460 /* MusicServiceTokenStore.swift in Sources */,
+				8497677D2ECC63E500E59A1E /* MusicServiceType.swift in Sources */,
 				84A71E1A2E9CA402005F0E4C /* AuthButtonView.swift in Sources */,
-				845FCEC32EAA1F3800D4D460 /* MusicServiceConstants.swift in Sources */,
+				845FCEC32EAA1F3800D4D460 /* MusicServiceConfig.swift in Sources */,
 				845B33A82EC45A0C003F80E0 /* ConcertMapper.swift in Sources */,
 				849403B82EA0EA2100FC96CD /* OnboardingViewModel.swift in Sources */,
 				8426E8232EAF2965003656CB /* OnboardingView.swift in Sources */,

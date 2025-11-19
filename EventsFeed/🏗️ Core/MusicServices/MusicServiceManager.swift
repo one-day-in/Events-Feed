@@ -3,7 +3,7 @@ import Combine
 
 final class MusicServiceManager: ObservableObject {
     @Published private(set) var connectionStates: [MusicServiceType: ConnectionState] = [:]
-    private var clients: [MusicServiceType: MusicServiceClient]
+    private var clients: [MusicServiceType: MusicProviderClient]
     
     enum ConnectionState {
         case disconnected
@@ -17,54 +17,37 @@ final class MusicServiceManager: ObservableObject {
         }
     }
     
-    init(clients: [MusicServiceType: MusicServiceClient]) {
+    init(clients: [MusicServiceType: MusicProviderClient]) {
         self.clients = clients
         setupInitialStates()
     }
     
     // MARK: - Public API
-    func getClient(for service: MusicServiceType) -> MusicServiceClient? {
+    func getClient(for service: MusicServiceType) -> MusicProviderClient? {
         return clients[service]
     }
     
     func connectService(_ type: MusicServiceType) async throws {
         let currentState = getConnectionState(for: type)
         
-        if case .connecting = currentState {
-            throw AppError.system(.invalidConfiguration)
-        }
-        
-        if case .connected = currentState {
-            throw AppError.system(.invalidConfiguration)
-        }
-        
-        // Перевіряємо наявність клієнта
         guard let client = getClient(for: type) else {
-            let error = AppError.system(.invalidConfiguration)
-            await updateConnectionState(for: type, state: .error(error))
-            throw error
+            throw AppError.system(.invalidConfiguration)
         }
         
-        print("🔗 Connecting \(type)...")
         await updateConnectionState(for: type, state: .connecting)
         
         do {
             try await client.authenticate()
-            
             let isAuthenticated = client.checkAuthenticationStatus()
+            
             if isAuthenticated {
                 await updateConnectionState(for: type, state: .connected)
-                print("✅ Successfully connected \(type)")
             } else {
-                let error = AppError.auth(.tokenRefreshFailed)
-                await updateConnectionState(for: type, state: .error(error))
-                throw error
+                throw AppError.auth(.tokenRefreshFailed)
             }
         } catch {
-            let appError = error.toAppError(context: "Connection to \(type) failed")
-            await updateConnectionState(for: type, state: .error(appError))
-            print("❌ Failed to connect \(type): \(error)")
-            throw appError
+            await updateConnectionState(for: type, state: .error(error.toAppError()))
+            throw error
         }
     }
     

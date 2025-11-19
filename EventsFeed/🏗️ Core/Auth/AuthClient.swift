@@ -3,14 +3,12 @@ import GoogleSignIn
 
 final class AuthClient: NSObject {
     
-    private let context: PresentationContextProviding
     private var appleContinuation: CheckedContinuation<User, Error>?
     
     // MARK: - Init
     
-    init(context: PresentationContextProviding) {
-        self.context = context
-        super.init()
+    init() {
+        
         configureGoogleSignIn()
     }
     
@@ -22,7 +20,7 @@ final class AuthClient: NSObject {
     // MARK: - Google Auth
     @MainActor
     func signInWithGoogle() async throws -> User {
-        guard let presentingVC = context.presentingViewController else {
+        guard let presentingVC = UIApplication.shared.getPresentingViewController() else {
             throw URLError(.badURL)
         }
         
@@ -93,7 +91,26 @@ extension AuthClient: ASAuthorizationControllerDelegate {
 
 extension AuthClient: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        context.presentationAnchor ?? UIWindow()
+        UIApplication.shared.getKeyWindow() ?? UIWindow()
+    }
+}
+
+extension UIApplication {
+    func getKeyWindow() -> UIWindow? {
+        return connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+    }
+    
+    func getPresentingViewController() -> UIViewController? {
+        guard let keyWindow = getKeyWindow() else { return nil }
+        
+        var vc = keyWindow.rootViewController
+        while let presented = vc?.presentedViewController {
+            vc = presented
+        }
+        return vc
     }
 }
 
