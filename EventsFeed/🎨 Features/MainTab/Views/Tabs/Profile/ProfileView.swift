@@ -59,11 +59,3 @@ private extension ProfileView {
         LogoutSectionView(viewModel: viewModel)
     }
 }
-
-#Preview {
-    let container = DIContainer()
-    let viewModelFactory = ViewModelFactory(container: container)
-    let profileViewModel = viewModelFactory.makeProfileViewModel {}
-    
-    return ProfileView(viewModel: profileViewModel)
-}

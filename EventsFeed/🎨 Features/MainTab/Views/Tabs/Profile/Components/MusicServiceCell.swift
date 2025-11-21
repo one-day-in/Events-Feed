@@ -16,17 +16,17 @@ struct MusicServiceCell: View {
     }
     
     private var serviceIcon: some View {
-        Image(systemName: service.iconName)
+        Image(systemName: service.display.iconName)
             .font(.system(size: 24))
             .foregroundColor(.white)
             .frame(width: 36, height: 36)
-            .background(service.gradient)
+            .background(service.display.gradient)
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
     
     private var serviceInfo: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(service.description)
+            Text(service.display.displayName)
                 .font(.body)
                 .foregroundColor(.primary)
             
@@ -37,26 +37,15 @@ struct MusicServiceCell: View {
     }
     
     private var connectionControl: some View {
-        Group {
-            if service.isOAuthService {
-                Toggle("", isOn: Binding(
-                    get: { isConnected },
-                    set: { onToggle($0) }
-                ))
-                .labelsHidden()
-                .scaleEffect(0.8)
-            } else {
-                Text("Built-in")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-        }
+        Toggle("", isOn: Binding(
+            get: { isConnected },
+            set: { onToggle($0) }
+        ))
+        .labelsHidden()
+        .scaleEffect(0.8)
     }
     
     private var statusText: String {
-        if !service.isOAuthService {
-            return "Always available"
-        }
         return isConnected ? "Connected" : "Not connected"
     }
 }

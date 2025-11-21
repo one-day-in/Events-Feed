@@ -52,7 +52,7 @@ final class ProfileViewModel: ObservableObject {
         performOperation(
             context: "sign_out",
             operation: {
-                try self.authManager.signOut()
+                self.authManager.signOut()
                 self.musicServiceManager.disconnectAll()
                 self.onLogout()
             },

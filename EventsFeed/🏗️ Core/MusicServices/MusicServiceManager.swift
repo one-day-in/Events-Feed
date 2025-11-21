@@ -28,7 +28,7 @@ final class MusicServiceManager: ObservableObject {
     }
     
     func connectService(_ type: MusicServiceType) async throws {
-        let currentState = getConnectionState(for: type)
+        _ = getConnectionState(for: type)
         
         guard let client = getClient(for: type) else {
             throw AppError.system(.invalidConfiguration)

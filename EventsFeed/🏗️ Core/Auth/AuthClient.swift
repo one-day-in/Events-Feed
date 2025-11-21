@@ -7,8 +7,8 @@ final class AuthClient: NSObject {
     
     // MARK: - Init
     
-    init() {
-        
+    override init() {
+        super.init()
         configureGoogleSignIn()
     }
     

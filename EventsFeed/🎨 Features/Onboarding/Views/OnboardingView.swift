@@ -1,8 +1,13 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @EnvironmentObject private var viewModel: OnboardingViewModel
+    @StateObject private var viewModel: OnboardingViewModel
     let onComplete: () -> Void
+    
+    init(viewModel: OnboardingViewModel, onComplete: @escaping () -> Void) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.onComplete = onComplete
+    }
     
     var body: some View {
         ZStack {            
@@ -43,16 +48,4 @@ struct OnboardingView: View {
             }
         }
     }
-}
-
-#Preview {
-    let container = DIContainer()
-    let viewModel = ViewModelFactory(container: container).makeOnboardingViewModel()
-    
-    OnboardingView(
-        onComplete: {
-            print("Onboarding completed!")
-        }
-    )
-    .environmentObject(viewModel)
 }
